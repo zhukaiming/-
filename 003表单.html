@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+</head>
+<body>
+	<form action="http://www.baidu.com">
+		<fieldset>
+		<legend><caption><h2>问卷调查</h2></caption></legend>
+		<!-- checked选中 -->
+		<!-- label待选项和输入框进行绑定 -->
+		<p>
+			<label for="username">账号</label>
+			<input type="text" name="username" id="username" list="">
+		</p>
+		<p>
+			<label for="password">密码:</label>
+			<input type="password" name="password" id="password" list="">
+		</p>
+			<input type="radio" name="xi" value="0">男
+			<input type="radio" name="xi" value="1" checked>女
+		<p>
+			<input type="checkbox" name="yi" value="0">篮球
+			<input type="checkbox" name="yi" value="1" checked>足球
+			<input type="checkbox" name="yi" value="2">乒乓球
+		</p>
+		<p>日期：
+			<input type="time" name="time" value="时间" placeholder="时间">
+		</p>
+		<p>生日：
+			<input type="date" name="date" value="">
+			<input type="image" src="imges/1.jpg">
+		</p>
+		<p>
+			<input type="hidden" name="text" value="yi">
+		</p>
+		<p>邮箱:
+			<input type="email" name="" value="" placeholder="">
+		</p>
+		<p>网址：
+			<input type="url" name="url">
+		</p>
+		<p>年龄：
+			<input type="number" name="number" value="20">
+		</p>
+		<p>颜色：
+			<input type="color" name="color">
+		</p>
+		<p>备选：
+			<input type="text" list="cars" name="">
+			<datalist id="cars">
+				<option value="cars">奔驰</option>
+				<option value="cars">宝马</option>
+				<option value="cars">奥迪</option>
+			</datalist>
+		</p>
+		<p>备选项：
+			<select>
+				<optgroup label="水果">
+					<option>苹果</option>
+					<option checked>香蕉</option>
+					<option>柠檬</option>
+				</optgroup>
+				<optgroup label="蔬菜">
+					<option>土豆</option>
+					<option>黄瓜</option>
+					<option>西红柿</option>
+				</optgroup>
+			</select>
+		</p>
+		<textarea name="" cols="30" rows="10"></textarea>
+		<p>
+			<input type="button" name="cha" value="查询">
+			<input type="submit" name="ti" value="提交">
+			<input type="reset" name="" value="重置">
+		</p>
+		</fieldset>
+	</form>
+	
+</body>
+</html>
