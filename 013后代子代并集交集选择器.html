@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后代子代交集并集选择器</title>
+	<style type="text/css">
+		header nav p{
+			font:24px STSong;/* 后代选择器 */
+			color:red;
+		}
+		header>.one{
+			font:800 36px STSong;/* 子选择器 */
+			color: rgb(255,0,0);
+		}
+		a{
+			text-decoration: none;
+		}
+		p.st{
+			font: 24px STSong;/* 交集选择器 */
+			color: blue;
+		}
+		h1,ul li{
+			font-size: 40px;/* 并集选择器 */
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>我是header1</h1>
+		<a href="#" class="one">点我</a>
+		<nav>
+			<p class="one">我是header2</p>
+			<p class="one st">我是header3</p>
+			<p>我是header4</p>
+			<p>我是header5</p>
+
+		</nav>
+	</header>
+	<ul>
+		<li>
+			<ul>
+				<li>我是header6</li>
+				<li>我是header7</li>
+			</ul>
+		</li>
+	</ul>	
+	 
+</body>
+</html>
