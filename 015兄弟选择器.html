@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兄弟选择器</title>
+
+	<style type="text/css">
+		div+p{
+			font-size: 36px;
+			color: red;
+		}
+		.two+.three{
+			font: 800 24px STSong;
+			color: rgb(0,255,0);
+		}
+		a~p{
+			font: 800 24px STSong;
+			color: rgb(0,255,0);
+		}
+	</style>
+</head>
+<body>
+	<h2>兄弟选择器应用</h2>
+	<a href="#">许昌学院</a>
+	<div>
+		许昌学院
+	</div>
+	<p class="one">许昌学院樱花1</p>
+	<p class="two">许昌学院樱花2</p>
+	<p class="three">许昌学院樱花3</p>
+	<p class="four">许昌学院樱花4</p>
+</body>
+</html>
