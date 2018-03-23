@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style type="text/css">
+		a{
+			color: red;
+			text-decoration: none;
+			font-size: 24px;
+		}
+		a:visited{
+			color: blue;
+		}
+		a:hover{
+			color: yellow;
+		}
+		a:active{
+			color: green;
+		}
+		div:before{
+			content: '我是谁：';
+			color: red;
+		}
+		div:after{
+			content: '牛二';
+			color: red;
+		}
+		input:focus{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<a href="#">樱花</a>
+	<div>
+		我是
+	</div>
+	<input type="" name="">
+</body>
+</html>
