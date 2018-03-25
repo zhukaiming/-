@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.one{
+			height: 200px;
+			width: 200px;
+			border: 1px solid #000;
+			background-image: url(imges/小图片.jpg);
+			background-repeat: no-repeat;
+			/* background-size: 100% 100%; */
+			/* background-size: 150px auto; */
+			/* background-size: cover; */
+			background-size: contain;
+		}
+		li{
+			width: 200px;
+			height: 200px;
+			border: 10px dashed #000;
+			list-style: none;
+			margin: 10px auto;
+
+		}
+		li:nth-child(1){
+			background-image: url(imges/小图片.jpg);
+			background-origin: padding-box;
+			background-size: cover;
+		}
+		li:nth-child(2){
+			background-image: url(imges/小图片.jpg);
+			background-origin: border-box;
+			background-size: cover;
+		}
+		li:nth-child(3){
+			background-image: url(imges/小图片.jpg);
+			background-origin: content-box;
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="one"></div>
+	<div class="two">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>
