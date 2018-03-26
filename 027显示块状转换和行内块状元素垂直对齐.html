@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>块状转换和行内块状元素垂直对齐</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			display: inline;
+			
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			display: inline;/* 块状转换成行内元素 */
+		}
+		.box3{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;/* 行内转换成块状 */
+			display: block;
+		}
+		.box4{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			display: inline-block;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">span1</div>
+	<div class="box2">span2</div>
+	<span class="box3">span3</span>
+	<span class="box4">span4</span>
+</body>
+</html>
