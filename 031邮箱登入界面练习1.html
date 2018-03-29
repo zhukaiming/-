@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>邮箱登入界面练习</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		a{
+			text-decoration: none;
+			font-size: 12px;
+			color: #369;
+		}
+		a:hover{
+			text-decoration: underline;
+		}
+		/* 头部*/
+		header{
+			background: #eff4fa;
+		}
+		header .hd{
+			width: 1000px;
+			height: 62px;
+			background: #eff4fa;
+			margin: 0 auto;
+		}
+		header .logo{
+			width: 186px;
+			height: 62px;
+			background-image: url(imges/qqlogo.png);
+			background-repeat: no-repeat;
+			line-height: 62px;
+			float: left;
+		}
+
+		header nav{
+			float: right;
+			height: 62px;
+		}
+		header nav li{
+			float: right;
+			line-height: 62px;
+			list-style: none;
+		}
+		/* 内容*/
+		section{
+			width: 915px;
+			height: 573px;
+			/* background: yellow; */
+			margin: 0 auto;
+		
+		} 
+		section .leftbox{
+			width: 510px;
+			height: 573px;
+			/* background: blue; */
+			background: url(imges/you.png) no-repeat 0px 100px;
+			float: left;
+		}
+		section .rightbox{
+			width: 350px;
+			height: 573px;
+			/* background: tomato; */
+			float: right;
+			padding-top: 100px;
+			box-sizing: border-box;
+		}
+		section .rightbox .fbox{
+			width: 100%;
+			height: 390px;
+			/* background: blue; */
+			border-radius: 4px;
+			border: 1px solid #ccf;
+
+		}
+		section .head{
+			width: 100%;
+			height: 52px;
+			line-height: 52px;
+			padding:0px 40px;
+			background: #eff4fa;
+			box-sizing: border-box;
+			margin-bottom: 37px;
+			border: 1px solid #ccf;
+		}
+		section .head a{
+			font-size: 20px;
+			text-decoration: none;
+		}
+		section .head a:hover{
+			color: black;
+		}
+		section .head a:first-child{
+			float: left;
+		}
+		section .head a:last-child{
+			float: right;
+		}
+		section .content{
+			width: 100%;
+			height: 250px;
+			padding: 30px;
+		}
+		section .content .inputer{
+			width: 284px;
+			height: 40px;
+			border: 1px solid #999999;
+			margin-bottom: 15px;
+			border-radius: 4px;
+		}
+		section .content .inputer input{
+			width: 284px;
+			height: 40px;
+			border: none;/*将input标签边框去掉*/
+			outline: none;
+			padding:10px 30px 10px 20px;
+			box-sizing: border-box;
+		}
+		section .content .check{
+			margin-top: 20px;
+		}
+		section .content input{
+			width: 16px;
+			height: 16px;
+		}
+		section .content label{
+			font-size: 12px;
+			vertical-align: top;/*设置垂直对齐*/
+			margin-top: 10px;
+		}
+		section .content .submit{
+			width: 284px;
+			height: 40px;
+			border: 1px solid #000;
+			margin-top: 10px;
+			border-radius: 4px;
+		}
+		section .content input[type='submit']{
+			width: 100%;
+			height: 40px;
+			color: white;
+			background: #069;
+			border: none;
+
+		}
+		section .content .foot{
+			width: 100%;
+			height: 40px;
+			margin-top: 20px;
+			text-align: right;
+			line-height: 40px;
+			padding-right: 40px;
+			box-sizing: border-box;
+		}
+		/* 尾部*/
+		footer{
+			width: 100%;
+			height: 40px;
+			background: #eff4fa;
+			text-align: center;
+			line-height: 40px;
+			/* margin-top: 1px; */
+		
+		} 
+		footer span{
+			font-size: 12px;
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="hd">
+			<h1 class="logo"></h1>
+			<nav>
+				<ul>
+					<li><a href="#">企业邮箱</a></li>
+					<li><a href="#">手机版&nbsp;|</a></li>
+					<li><a href="#">English</a></li>
+					<li><a href="#">基本版|</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section>
+		<div class="leftbox"></div>
+		<div class="rightbox">
+			<div class="fbox">
+				<div class="head">
+					<a href="#">快速登入</a>
+					<a href="#">账号密码登入</a>
+				</div>
+				<div class="content"><!-- placeholder 属性提供可描述输入字段预期值的提示信息 -->
+					<div class="inputer"><input type="text" placeholder="支持QQ号/邮箱/手机号登入" name=""></div>
+					<div class="inputer"><input type="password" placeholder="QQ密码" name=""></div>
+					<div class="check"><input type="checkbox" id="autocheck" name=""><label for="autocheck">input下次自动登入</label><!-- label与input绑定 -->
+					</div>
+					<div class="submit"><input type="submit" name=""></div>
+					<div class="foot">
+					<a href="#">忘了密码</a>
+					<a href="#">注册新账号</a>
+					<a href="#">意见反馈</a>
+				</div>
+				</div>
+				
+			</div>
+		</div>		
+	</section>
+	<footer>
+		<a href="#">关于腾讯</a>
+		<a href="#">服务条款</a>
+		<a href="#">客服中心</a>
+		<a href="#">联系我们</a>
+		<a href="#">帮助中心</a>
+		<span>©1998 - 2018 Tencent Inc. All Rights Reserved.</span>
+	</footer>
+</body>
+</html>
