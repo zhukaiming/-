@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/* header .dian{
+			width: 200px;
+			height: 50px;
+			line-height: 50;
+			position: fixed;
+			top: 20px;
+			left: 50%;
+			background: red;
+		} */
+		header{
+			width: 1000px;
+			height: 50px;
+			background: gray;
+			/* margin: 20px auto; */
+			text-align: center;
+			position: fixed;
+			left: 50%;
+			margin-left: -500px;
+			top: 20px;
+			z-index: 999;
+		}
+		header ul li {
+			float: left;
+			width: 200px;
+			height: 50px;
+			line-height: 50px;
+			list-style: none;
+
+			/* border: 1px solid #000; */
+		}
+		header ul li a{
+			font-size: 20px;
+			text-align: center;
+			text-decoration: none;
+			color: black;
+		}
+		header ul li:nth-child(3){
+			background: red;
+		}
+		header ul li a:hover{
+			color: blue;
+		}
+		section{
+			width: 100%;
+			height: 2000px;
+		}
+		section .leftbox{
+			width: 100px;
+			height: 200px;
+			background: red;
+			position: fixed;
+			top: 200px;
+			left: 0px;
+		}
+		section .rightbox{
+			width: 100px;
+			height: 200px;
+			background: red;
+			position: fixed;
+			top: 200px;
+			right: 0px;
+		}
+		section .fan{
+			width: 70px;
+			height: 60px;
+			line-height: 60px;
+			background: gray;
+			position: fixed;
+			top: 600px;
+			right: 0px;
+		}
+		section a{
+			text-align: center;
+			text-decoration: none;
+		}
+		section .mid{
+			width: 600px;
+			height: 360px;
+			/* background: tomato; */
+			margin: 80px auto;
+			background-image: url(imges/yang.png);
+			position: relative;
+		}
+		section .mid .left,section .mid .right{
+			width: 50px;
+			height: 50px;
+			background: rgba(0,0,0,0.7);
+			color: white;
+			font-size: 30px;
+			text-align: center;
+		}
+		section .mid .left{
+			position: absolute;
+			top: 180px;
+			left: 0px;
+		}
+		section .mid .right{
+			position: absolute;
+			top: 180px;
+			right: 0px;
+		}
+
+		section .content{
+			width: 700px;
+			height: 1200px;
+			background: blue;
+			margin: 0 auto;
+		}
+		.mid ul{
+			width: 160px;
+			height: 40px;
+			/* border: 1px solid #000; */
+			position:absolute;
+			bottom: 5px;
+			right: 5px;
+		}
+		.mid ul li{
+			width: 20px;
+			height: 20px;
+			background: rgba(0,0,0,0.7);
+			font-size: 16px;
+			color: white;
+			float: left;
+			list-style: none;
+			border-radius: 50%;
+			text-align: center;
+			margin: 10px 5px;
+			/* position:absolute;
+			bottom: 5px;
+			right: 5px; */
+		}
+		footer{
+			
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<!-- <div class="dian"></div> -->
+		<ul>
+			<li><a href="#">天猫会员</a></li>
+			<li><a href="#">品牌街</a></li>
+			<li><a href="#">电器城</a></li>
+			<li><a href="#">营业厅</a></li>
+			<li><a href="#">魅力惠</a></li>
+		</ul>
+	</header>
+	<section>
+		<div class="leftbox"></div>
+		<div class="mid">
+			<div class="left">&lt</div>
+			<div class="right">&gt</div>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+		<div class="rightbox"></div>
+		<div class="fan"><a href="#">返回顶部</a></div>
+		<div class="content"></div>
+	</section>
+	<footer>
+		
+	</footer>
+</body>
+</html>
