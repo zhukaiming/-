@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 600px;
+			height: 800px;
+			border: 1px solid #000;
+			margin: 50px auto;
+		}
+		ul li{
+			width: 200px;
+			height: 100px;
+			background: gray;
+			line-height: 100px;
+			text-align: center;
+			margin: 0 auto;
+			margin-top: 50px;
+			list-style: none;
+		}
+		ul li:nth-child(2){
+			transform: rotate(45deg);
+		}
+		ul li:nth-child(3){
+			transform: translate(50px,50px);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>默认</li>
+		<li>旋转</li>
+		<li>平移</li>
+		<li>缩放</li>
+		<li>复合</li>
+	</ul>
+</body>
+</html>

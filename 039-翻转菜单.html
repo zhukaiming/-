@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-翻转菜单.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.nav{
+			margin: 00px auto;
+			width: 380px;
+			height: 100px;
+			background-color: pink;
+		}
+		.nav>li{
+			width: 100px;
+			height: 50px;
+			background-color: tomato;
+			list-style: none;
+			float: left;
+			margin-left: 20px;
+			text-align: center;
+			line-height: 50px;
+			margin-top: 25px;
+		}
+		.sub>li{
+			width: 100px;
+			height: 50px;
+			line-height: 50PX;
+			text-align: center;
+			list-style: none;
+			background-color: blue;
+			transform: rotateY(180deg);
+			border: 1px solid #000;
+			transition: all 3s;
+			opacity: 0;
+		}
+		.nav>li:hover .sub>li{
+			transform: rotateY(0deg);
+			opacity: 1;
+		}
+		.nav>li:hover .sub>li:nth-child(1){
+			transition-delay: 2ms
+		}
+		.nav>li:hover .sub>li:nth-child(2){
+			transition-delay: 200ms
+		}
+		.nav>li:hover .sub>li:nth-child(3){
+			transition-delay: 400ms
+		}
+		.nav>li:hover .sub>li:nth-child(4){
+			transition-delay: 600ms
+		}
+		.nav>li:hover .sub>li:nth-child(5){
+			transition-delay: 800ms
+		}
+		sub>li:nth-child(5){
+			transition-delay: 2ms
+		}
+		sub>li:nth-child(4){
+			transition-delay: 200ms
+		}
+		sub>li:nth-child(3){
+			transition-delay: 400ms
+		}
+		sub>li:nth-child(2){
+			transition-delay: 600ms
+		}
+		sub>li:nth-child(1){
+			transition-delay: 800ms
+		}
+		.footer{
+			width: 380px;
+			height: 400px;
+			background: gray;
+			margin: 0 auto;
+			
+		}
+	</style>
+</head>
+<body>
+	<div>
+
+		<ul class="nav">
+			<li>一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="footer">
+			我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+		</div>
+	</div>
+</body>
+</html>

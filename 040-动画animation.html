@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-动画animation.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: pink;
+			animation-name: sport;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+
+		}
+		/* .box:hover{
+			width: 800px;
+		} */
+		@keyframes sport{
+			from{
+				width: 200px;
+				height: 200px;
+				border-radius: 0;
+				background-color: pink;
+			}
+			to{
+				width: 800px;
+				height: 800px;
+				border-radius: 50%;
+				background-color: blue;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+</body>
+</html>
