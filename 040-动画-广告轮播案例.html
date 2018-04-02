@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-动画-广告轮播案例.html</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;	
+		}
+		div{
+			width: 300px;
+			height:150px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		ul{
+			width: 1200px;
+			height: 150px;
+			border: 1px solid #000;
+			/* margin-top: 50px; */
+			animation: sport 4s linear infinite normal;
+			/* opacity: 0.4; */
+		}
+		ul:hover li{
+			animation-play-state: paused;
+			opacity: 0.5;
+		}
+		/* ul li:hover img{
+			opacity: 1;
+		} */
+		ul li:hover {
+			opacity: 1;
+		}
+		@keyframes sport{
+			from{
+				margin-left: 0px;
+			}
+			to{
+				margin-left: -900px;
+			}
+		}
+		ul li{
+			width: 300px;
+			height: 150px;
+			list-style: none;
+			float: left;
+		}
+		img{
+			width: 300px;
+			height: 150px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><img src="imges/kebi.jpg" alt=""></li>
+			<li><img src="imges/kebi01.jpg" alt=""></li>
+			<li><img src="imges/kebi02.jpg" alt=""></li>
+			<li><img src="imges/kebi.jpg" alt=""></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-3D旋转长方体.html</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+
+		}
+		body{
+			perspective: 500px;/* 透视效果 */
+		}
+		ul{
+			width: 400px;
+			height: 200px;
+			margin: 50px auto;
+			position: relative;
+			transform-style: preserve-3d;
+			/* border: 1px solid #000; */
+			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+			animation: sport 4s linear infinite normal;
+
+		}
+		@keyframes sport{
+			from{
+				transform: rotateX(0deg);
+			}
+			to{
+				transform: rotateX(360deg);
+			}
+		}
+		ul li{
+			list-style: none;
+			width: 400px;
+			height: 200px;
+			text-align: center;
+			line-height: 200px;
+			font-size: 24px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border-radius: 5px;
+
+		}
+		ul:hover{
+			animation-play-state: paused;
+			
+		}
+		ul:hover li{
+			opacity: 0.9;
+		}
+		ul li:hover{
+			opacity: 1;
+		}
+		ul li:nth-child(1){
+			background-image: url(imges/pite01.jpg);
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		ul li:nth-child(2){
+			background-image: url(imges/pite02.jpg);
+			transform: rotateX(180deg) translateZ(100px);
+		}
+		ul li:nth-child(3){
+			background-image: url(imges/pite03.jpg);
+			transform: rotateX(270deg) translateZ(100px);
+		}
+		ul li:nth-child(4){
+			background-image: url(imges/pite04.jpg);
+			transform: rotateX(0deg) translateZ(100px);
+		}
+		ul li:nth-child(5){
+			background-image: url(imges/pite05.jpg);
+			transform: rotateY(270deg) translateZ(200px) scale(0.5,1);
+		}
+		ul li:nth-child(6){
+			background-image: url(imges/pite06.jpg);
+			transform: rotateY(90deg) translateZ(200PX) scale(0.5,1);
+		}
+		ul li img{
+			width: 400px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>大</li>
+			<li>山</li>
+			<li>的</li>
+			<li>子</li>
+			<li>孙</li>
+			<li>呦</li>
+		</ul>
+	</div>
+</body>
+</html>
