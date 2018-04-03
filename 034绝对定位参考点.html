@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位参考点</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.box1{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			/* position: relative; */
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background: blue;
+			position: relative;
+			margin: 50px;
+		}
+		.box3{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0;
+			right: 0px;
+			
+		}
+		.box5{
+			width: 200px;
+			height: 200px;
+			background: gray;
+		}
+		.box6{
+			width: 200px;
+			height: 200px;
+			background: yellow;
+			position: absolute;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+		}
+		.box7{
+			width: 200px;
+			height: 200px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2">
+			<div class="box3"></div>
+		</div>
+	</div>
+	<div class="box5"></div>
+	<div class="box6"></div>
+	<div class="box7"></div>
+</body>
+</html>
