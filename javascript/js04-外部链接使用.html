@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>外部链接使用</title>
+	<style>
+		div{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+		}
+		#box2{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script defer="defer" src="javas/001js.js">
+		/*window.onload=function(){
+			function toblue(){
+				document.getElementById('box').style.backgroundColor = 'blue';
+			}
+			document.getElementById('box').onclick = toblue;
+		}*/
+		window.onload=function(){
+			function tored(){
+				document.getElementById('box2').style.backgroundColor = 'red';
+			}
+			document.getElementById('box2').onmouseover = tored;
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box2"></div>
+</body>
+</html>

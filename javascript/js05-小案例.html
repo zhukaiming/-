@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#bad{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+		}
+		input{
+			width: 200px;
+			height: 100px;
+			
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var Obad = document.getElementById('bad');
+			var Ogood = document.getElementById('good');
+			Ogood.onclick = function(){
+				if(Obad.style.display == 'none')
+				{
+					Obad.style.display='block';
+				}
+				else{
+					Obad.style.display='none';
+				}
+			}
+		}
+		window.onload = function(){
+			var Ocdd = document.getElementById('cdd');
+			Ocdd.onclick = function(){
+				alert('sfssf')
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="消息" id="good">
+	<input type="button" value="消息" id="cdd">
+	<div id="bad" style="display: none">我是测试的</div>
+</body>
+</html>

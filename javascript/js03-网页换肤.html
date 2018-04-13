@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页换肤</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#box1{
+			width: 1920px;
+			height: 1080px;
+			background-image: url(imges/04.jpg);
+			background-repeat: no-repeat;
+		}
+		ul li{
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			color: #fff;
+			font-size: 20px;
+			border-radius: 50%;
+			background-color: red;
+			float: left;
+			margin-right: 20px;
+			list-style: none;
+		}
+	</style>
+	<script>
+		function addClass(){
+			document.getElementById('box1').style.backgroundImage ='url(imges/01.jpg)';
+		}
+		function add(){
+			document.getElementById('box1').style.backgroundImage ='url(imges/02.jpg)';
+		}
+		function ad(){
+			document.getElementById('box1').style.backgroundImage ='url(imges/05.jpg)';
+		}
+		function adds(){
+			document.getElementById('box1').style.backgroundImage ='url(imges/06.jpg)';
+		}
+	</script>
+</head>
+<body>
+	<div id="box1" >
+		<ul><a href="#">
+			<li onclick="addClass()">push</li>
+			<li onclick="add()">your</li>
+			<li onclick="ad()">hand</li>
+			<li onclick="adds()">oh</li>
+			</a>
+		</ul>
+	</div>
+</body>
+</html>
