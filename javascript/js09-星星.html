@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+
+	<meta charset="UTF-8">
+	<title>js09-星星.html</title>
+	<script>
+		for(var i=0; i<5;i++){
+			var str='';
+			for(var k=1;k<5-i;k++){
+				str=str + "<span class='one'></span>";
+			}
+			for(var j=0;j<=i;j++){
+				str = str + "<span class='two'>*</span>";	
+
+			}
+			document.write("<br>");
+			document.write(str);
+		}
+	</script>
+	<style>
+		.one{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+		}
+		.two{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+</html>
