@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>样式函数</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}
+		.active{
+			background-color: yellow;
+		}
+	</style>
+	<script>
+		function css(obj,attr,value){
+		if(arguments == 2){/*传递两个参数*/
+			return getComputedStyle(obj,false)[attr];/*返回的是css(obox,'width')，即获取对象obox的宽度*/
+		}else{
+			obj.style[attr] = value;/*传递三个参数*/
+		}
+	}
+		window.onload = function(){
+			var oBtn1 = document.getElementById('btn1')
+			var oBtn2 = document.getElementById('btn2');
+			//var oBtn3 = document.getElementById('btn3');
+			var obox = document.getElementById('box');
+			oBtn1.onclick = function(){
+				//obox.style.width = '400px'; 
+				css(obox,'width','400px');
+			}
+			oBtn2.onclick = function(){
+				//obox.className = 'active'; 
+				alert(css(obox,'width'));/*获取width*/
+			}
+			/*oBtn3.onclick = function(){
+				obox.style.backgroundColor = 'red';
+			}*/
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="变宽" id="btn1">
+	<input type="button" value="变黄" id="btn2">
+	<input type="button" value="变红" id="btn3">
+	<div id="box">
+		
+	</div>
+</body>
+</html>

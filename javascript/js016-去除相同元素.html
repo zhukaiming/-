@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js016-去除相同元素.html</title>
+	<script>
+		var arr = [1,23,54,68,23,88,54];
+		function remove(arr){
+			var result = [];
+			for(var i=0;i<arr.length;i++){
+				var Ido = false;
+				for(var j=0;j<result.length;j++){
+					if(arr[i] == result[j]){
+						Ido = true;
+						break;
+					}
+				}
+				if(!Ido){
+				result.push(arr[i]);
+			}
+			
+		}
+		return result;	
+	}
+	console.log(remove(arr));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

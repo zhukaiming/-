@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js010-字符串转化成数字的方法.html</title>
+	<script>
+		window.onload = function(){
+			var iPn1 = document.getElementById('box1');
+			var iPn2 = document.getElementById('box2');
+			var bTn = document.getElementById('box3');
+			bTn.onclick = function(){
+				var ip1 = parseInt(iPn1.value);
+				var ip2 = parseInt(iPn2.value);
+				var ip3 = iPn1.value*1;
+				var ip4 = iPn2.value*1;
+				alert(ip1+ip2);
+				alert(ip3+ip4);
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="box1">
+	<input type="text" id="box2">
+	<input type="button" value="相加" id="box3">
+</body>
+</html>

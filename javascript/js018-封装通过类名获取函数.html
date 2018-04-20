@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js018-封装通过类名获取函数.html</title>
+	<style>
+		.class{
+			background-color: blue;
+		}
+		li{
+			width: 100%;
+			height: 50px;
+			border: 1px solid #000;
+			list-style: none;
+		}
+	</style>
+	<script>
+		function getElementsByClassName(obj,aClass){/*获取传过来的oUl1,'box'*/
+			var result = [];
+			var aEle = obj.children;/*定义变量aEle为所获取元素的子对象*/
+			for(var i=0;i<aEle.length;i++){
+				if(aEle[i].className == aClass){/*比较此时的li的类名是否和获取的类名相同*/
+					result.push(aEle[i]);/*把符合条件的推送到result*/
+				}
+			}
+			return result;/*返回result*/
+		}
+		window.onload = function(){
+			var oUl1 = document.getElementById('ul1');
+			//var aLi = oUl1.getElementsByClassName('box');
+			var aLi = getElementsByClassName(oUl1,'box');
+			for(i in aLi){
+				aLi[i].style.background = 'red';
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id = "ul1">
+		<li></li>
+		<li class = 'box'></li>
+		<li></li>
+		<li class = 'box'></li>
+		<li></li>
+		<li class = 'box'></li>
+		<li></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js017-操作属性.html</title>
+	<script>
+		window.onload = function(){
+			var oBtn1 = document.getElementById('btn1');
+			var oBtn2 = document.getElementById('btn2');
+			oBtn1.onclick = function(){
+				//oBtn2.value = '123';
+				//oBtn2['value'] = '123';
+				//oBtn2.setAttribute('value','123');
+				//alert(oBtn2.getAttribute('value'));
+				oBtn2.removeAttribute('value');
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value = '点击'>；
+	<input type="text" id = "btn2" value = '123'>;
+
+</body>
+</html>

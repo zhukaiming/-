@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js017-隐藏父元素.html</title>
+	<script>
+		window.onload = function(){
+			var uL1 = document.getElementById('ul1');
+			var aA = document.getElementsByTagName('a');
+			for( var i=0;i<aA.length;i++){
+				aA[i].onclick = function(){
+					this.parentNode.style.display = 'none';
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<ul class="ul1">
+			<li>adasdasd<a href="#">sdf</a></li>
+			<li>adasdasd<a href="#">sdf</a></li>
+			<li>adasdasd<a href="#">sdf</a></li>
+			<li>adasdasd<a href="#">sdf</a></li>
+			<li>adasdasd<a href="#">sdf</a></li>
+		</ul>
+	</div>
+</body>
+</html>
