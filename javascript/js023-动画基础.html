@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js023-动画基础.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			top: 50px;
+			left: 600px;
+		}
+		.line{
+			width: 1px;
+			height: 500px;
+			position: absolute;
+			left: 300px;
+			top: 0;
+			background-color: black;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementById('btn1');
+			var oBox = document.getElementById('box');
+			var timer = null;
+			var iSpeed = 0;
+			oBtn.onclick = function(){
+				clearInterval(timer)/*清除定时器*/
+				if(oBox.offsetLeft<300){
+					iSpeed = 5;
+				}else{
+					iSpeed = -5;
+				}
+				timer = setInterval(function(){
+					if(oBox.offsetLeft == 300){
+						clearInterval(timer);
+					}else{
+						oBox.style.left = oBox.offsetLeft + iSpeed +'px';
+					}
+				},30);
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value = "开始" id = "btn1">
+	<div id="box"></div>
+	<div class="line"></div>
+</body>
+</html>

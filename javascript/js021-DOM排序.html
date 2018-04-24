@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js021-DOM排序.html</title>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('ul1');
+			var aLi = oUl.children;
+			oBtn.onclick = function(){
+				var arr = [];/*新建一个空数组*/
+				for(var i=0;i<aLi.length;i++){
+					arr.push(aLi[i]);
+				}
+				arr.sort(function(obl1,obl2){/*接受参数*/
+					n1 = obl1.innerHTML;
+					n2 = obl2.innerHTML;
+					return n1-n2;
+				})
+				for(var i=0;i<arr.length;i++){
+					oUl.appendChild(arr[i]);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value= "排序" id = "btn">
+	<ul id = "ul1">
+		<li>12</li>
+		<li>54</li>
+		<li>21</li>
+		<li>36</li>
+		<li>78</li>
+		<li>59</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js025-减速动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#div1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			top: 100px;
+			left: 0px;
+		}
+		#div2{
+			/* width: 1px; */
+			height: 500px;
+			position: absolute;
+			left: 300px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script>
+		var timer = null;
+		function animation(obj,attr,iTarget){
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function(){
+					var curr = parseFloat(getComputedStyle(obj,false)[attr]);
+					if(curr == 'opacity'){
+						curr = Math.round(curr*100);
+					}
+					var iSpeed = (iTarget - curr)/10;
+					iSpeed = Math.ceil(iSpeed);
+					if(iTarget == curr){
+						if(attr == 'opacity'){
+							clearInterval(timer);
+
+						}
+					}else{
+						if(attr == 'opacity'){
+							obj.style[attr] = (curr + iSpeed)/100;
+						}else{
+							obj.style[attr] = curr + iSpeed + 'px';
+						}
+						
+					}
+				},30)
+		}
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var oDiv = document.getElementById('div1');
+			
+			oBtn.onclick = function(){
+				animation(oDiv,'opacity',100)
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id = "btn" value = "开始动画">
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>

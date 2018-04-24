@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js023-匀速动画底部固定.html</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+		#div1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			right: 0;
+		}
+	</style>
+	<script>
+		function animation(obj,attr,iTarget){
+			clearInterval(obj.timer);/*清除定时器*/
+			
+			obj.timer = setInterval(function(){/*把定时器赋给obj*/
+				var iSpeed = 0;
+				var curr = parseFloat(getComputedStyle(obj,false)[attr]);/*获取元素的css值，类型转换*/
+				if(attr == 'opacity'){/*属性为透明度*/
+					curr = curr*100;
+				}
+				if(curr>iTarget){/*比较当前值和目标值大小*/
+					iSpeed = -50;
+				}else{
+					iSpeed = 50;
+				}
+				if(Math.abs(iTarget-curr) <= Math.abs(iSpeed)){
+					
+					clearInterval(obj.timer);
+					if(attr == 'opacity'){/*处理透明度*/
+						obj.style[attr] = iTarget/100;
+					}else{
+						obj.style[attr] = iTarget +'px';/*有px的*/
+					}
+				}else{
+					if(attr == 'opacity'){
+						obj.style[attr] = (curr + iSpeed)/100;
+					}else{
+						obj.style[attr] = curr + iSpeed +'px';
+					}
+					
+				}
+			},30);
+		}
+		window.onresize = window.onscroll = window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var iHeight = window.innerHeight;/*可视区域高度*/
+			var iTop = document.body.scrollTop || document.documentElement.scrollTop;/*当||前面的值为真，取前面的值*/
+			//oDiv.style.top = iTop + iHeight -oDiv.offsetHeight + 'px';
+			var iTarget = iTop + iHeight -oDiv.offsetHeight;
+			animation(oDiv,'top',iTarget);
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

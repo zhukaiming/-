@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js024-滚动导航栏.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			height: 3000px;
+		}
+		#div{
+			width: 100%;
+			height: 100px;
+			background-color: blue;
+
+		}
+		#div1{
+			width: 100%;
+			height: 0px;
+			background-color: red;
+			/* position: absolute; */
+			/* right: 0; */
+			position: fixed;
+			top: 0;
+		}
+	</style>
+	<script>
+		function animation(obj,attr,iTarget){
+			clearInterval(obj.timer);/*清除定时器*/
+			
+			obj.timer = setInterval(function(){/*把定时器赋给obj*/
+				var iSpeed = 0;
+				var curr = parseFloat(getComputedStyle(obj,false)[attr]);/*获取元素的css值，类型转换*/
+				if(attr == 'opacity'){/*属性为透明度*/
+					curr = curr*100;
+				}
+				if(curr>iTarget){/*比较当前值和目标值大小*/
+					iSpeed = -20;
+				}else{
+					iSpeed = 20;
+				}
+				if(Math.abs(iTarget-curr) <= Math.abs(iSpeed)){
+					
+					clearInterval(obj.timer);
+					if(attr == 'opacity'){/*处理透明度*/
+						obj.style[attr] = iTarget/100;
+					}else{
+						obj.style[attr] = iTarget +'px';/*有px的*/
+					}
+				}else{
+					if(attr == 'opacity'){
+						obj.style[attr] = (curr + iSpeed)/100;
+					}else{
+						obj.style[attr] = curr + iSpeed +'px';
+					}
+					
+				}
+			},30);
+		}
+		var isShow = false;
+		window.onscroll = function(){
+			var oDiv = document.getElementById('div1');
+			var oMain = document.getElementById('main');
+			//var iHeight = window.innerHeight;/*可视区域高度*/
+			var iTop = document.body.scrollTop || document.documentElement.scrollTop;/*当||前面的值为真，取前面的值*/
+			//oDiv.style.top = iTop + iHeight -oDiv.offsetHeight + 'px';
+			//var iTarget = iTop;
+			/*if(oDiv.offsetHeight<iTop){
+				animation(oDiv,'top',iTarget);
+			}*/
+			if(iTop>=100){/*如果移动的距离大于等于100*/
+				if(!isShow){/*如果!isShow为真，执行*/
+					animation(oDiv,'height',100);
+					oMain.style.marginTop = '100px';
+					isShow = true;/*执行完定义isShow为真，以免下次从复执行*/
+					console.log('aaa');
+				}
+				//oDiv.style.height = '100px';
+			}else{
+				if(isShow){
+					animation(oDiv,'height',0);
+					oMain.style.marginTop = '0px';
+					isShow = false;
+					console.log('bbb');
+				}
+				//oDiv.style.height = '0';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div"></div>
+	<div id="div1"></div>
+	<div id="main">123123123<br></div>
+</body>
+</html>

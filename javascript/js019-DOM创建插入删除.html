@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js019-DOM创建插入删除.html</title>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var oTxt = document.getElementById('txt');
+			var oUl = document.getElementById('ul1');
+			oBtn.onclick = function(){
+				var oLi = document.createElement('li');
+				oLi.innerHTML = oTxt.value;
+				var oA = document.createElement('a');
+				oA.innerHTML = 'del';
+				oA.onclick = function(){
+					 //parentNode.removeChild(node)
+					 oUl.removeChild(this.parentNode);/*remove的是一个对象*/
+				}
+				oUl.appendChild(oLi);
+				oLi.appendChild(oA);
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id ="txt">
+	<input type="button" value = "添加" id ="btn">
+	<ul id = "ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>
