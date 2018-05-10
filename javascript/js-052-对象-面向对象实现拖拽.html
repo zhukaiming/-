@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-052-对象-面向对象实现拖拽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+	<script>
+		//var oBox = null;
+		window.onload = function(){
+			new drag({width:200,height:200,background:"yellow"});/*传递对象*/
+			new drag({width:100,height:100,background:"red"});
+		}
+		function drag(option){/*接收对象*/
+			//this.oBox = document.getElementById('box');
+			this.width = option.width;
+			this.height = option.height;
+			this.background =option.background; 
+			//罗列对象
+			this.disX = 0;
+			this.disY = 0;
+			this.init()//初始化
+			//document.body.appendChild(this.oBox);
+			this.bindEvent();//事件绑定
+		}
+		drag.prototype.bindEvent = function(){
+			//方法一
+			/*var _self = this;
+			this.oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				_self.disX = oEvent.clientX - _self.oBox.offsetLeft;
+				_self.disY = oEvent.clientY - _self.oBox.offsetTop;
+				document.onmousemove = _self.fnmove.bind(_self);//
+				document.onmouseup = _self.fnup;//传递this(drag对象)
+			}*/
+			//方法2
+			this.oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				this.disX = oEvent.clientX - this.oBox.offsetLeft;
+				this.disY = oEvent.clientY - this.oBox.offsetTop;
+				document.onmousemove = this.fnmove.bind(this);//
+				document.onmouseup = this.fnup;//传递this(drag对象)
+			}.bind(this);//这里this指的是drag对象
+		}
+		drag.prototype.init = function(){
+			this.oBox =document.createElement('div')
+			this.oBox.style.width = this.width + 'px';/*初始化宽高*/
+			this.oBox.style.height = this.height + 'px';
+			this.oBox.style.background = this.background;
+			this.oBox.style.position = 'absolute';
+			document.body.appendChild(this.oBox);
+
+		}
+		/*drag.prototype.fndown = function(ev){
+				var oEvent = ev || event;
+				this.disX = oEvent.clientX - this.oBox.offsetLeft;
+				this.disY = oEvent.clientY - this.oBox.offsetTop;
+				document.onmousemove = this.fnmove.bind(this);
+				document.onmouseup = this.fnup;
+
+			}*/
+		drag.prototype.fnup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		drag.prototype.fnmove = function(ev){
+				var oEvent = ev || event;
+				this.oBox.style.left = oEvent.clientX - this.disX + "px";
+				this.oBox.style.top = oEvent.clientY - this.disY + "px";			
+		}
+		function Limitdrag(option){
+			drag.call(this,option)
+		}
+		//Limitdrag.prototype = Object.create(drag.prototype);
+		//Limitdrag.prototype.fnmove = function(ev){
+			//var l = 
+		//}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

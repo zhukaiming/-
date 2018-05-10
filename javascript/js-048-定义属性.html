@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-048-原型链.html</title>
+	<script>
+		//var obj = {};
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+			console.log(Person)
+		}
+		Person.prototype.sayName = function(){
+			console.log("I am " + this.name);
+		}
+		Person.prototype.sayAge = function(){
+			console.log("I am " + this.name);
+		}
+		var p1 =new Person("tom", 18)
+		p1.name = "zhu";
+		console.log(p1)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>改变this的指向</title>
+	<script>
+		function show(n1,n2){
+			console.log(this,n1,n2)
+		}
+		show();
+		show.call({name:"zhu"},100,200);/**/
+		show.apply({name:"zhu"},[100,200]);/**/
+		var fn = show.bind({name:"zhu"},100,200)/*返回函数*/
+		console.log(fn);
+		fn();
+	</script>
+</head>
+<body>
+						
+</body>
+</html>

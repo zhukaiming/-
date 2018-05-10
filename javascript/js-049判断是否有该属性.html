@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-049判断是否有该属性.html</title>
+	<script>
+		function Person(name,age){/*构造函数*/
+			this.name = name;
+			this.age = age;
+		} 
+		Person.prototype.showName = function(){/*原型对象*/
+			console.log("I am" + this.name + " I have" + this.legs + "legs");
+		}
+		Person.prototype.showAge = function(){
+			console.log(this.age);
+		}
+		Person.prototype.legs  = 2;
+		var p1 = new Person("zhu",18);
+		//p1.legs = 2;
+		console.log(p1.legs);
+		console.log(p1.hasOwnProperty('legs'))/*判断在对象实例上是否有该属性*/
+		console.log("legs" in p1);/*判断在原型链上或者是对象实例上是否有该属性*/
+		function hasprototypeproperty(obj,name){/*判断在原型链上是否有该属性*/
+			return !obj.hasOwnProperty(name) && (name in obj);
+		}
+		console.log(hasprototypeproperty(p1,"legs"))
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

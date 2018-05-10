@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js028-发布效果.html</title>
+	<style>
+		ul li{
+			list-style: none;
+			border-bottom: 1px dashed #ccc;
+		}
+	</style>
+	<script src = "javas/tool.js"></script>
+	<script>
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn2');
+			var oUl = document.getElementById('ul1');
+			oBtn.onclick = function(){
+				var aLi = document.createElement('li');
+				aLi.innerHTML = oTxt.value;
+				oTxt.value = '';
+				oUl.insertBefore(aLi,oUl.firstElementChild);
+				aLi.style.height = '0px';
+				aLi.style.opacity = 0;
+				animation(aLi,{'height':50},true,function(){
+					animation(aLi,{'opacity':100},false,);
+				});
+			}
+			oTxt.onkeydown = function(ev){/*enter键提交*/
+				oEvent = ev || event;
+				if(oEvent.keyCode == 13){
+					oBtn.onclick();
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id = "txt">
+	<input type="button" id = "btn2" value = "提交">
+	<ul id = "ul1">
+		<li>123</li>
+	</ul>
+</body>
+</html>

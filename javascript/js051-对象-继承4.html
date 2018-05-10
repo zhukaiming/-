@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-051-对象-继承4.html</title>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function(){
+			console.log("I am " + this.name)
+		}
+
+		Object.defineProperty(Person.prototype,"showAge",{value:function(){
+			console.log("I am " + this.age + " years old" )/*默认的enumerable为false，不可以进行for(key in obj)循环*/
+		}})
+		//var p1 = new Person("zhu",18);
+		//console.log(p1)
+
+
+		//方法的继承
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+		//Student.prototype = new Person();/*方法的继承3:把person的实例对象赋给student的原型对象,弊端，构造函数执行两次*/
+		function Student(name,age,classname){
+
+			Person.call(this,name,age)/*属性的继承*/
+			this.classname = classname;
+		}
+		///*添加constructor*/
+		//方法的继承4
+		var obj = Object.create(Person.prototype);/*方法的继承4*/
+		Student.prototype = obj;
+		Student.prototype.constructor = Student;
+		Student.prototype.showClassname = function(){
+			console.log("I am " + this.classname)
+		}
+		
+		var s1 = new Student("zhang",18,1);
+		console.log(s1)
+		
+		s1.showName();
+		s1.showAge();/**/
+		s1.showClassname();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

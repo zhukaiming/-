@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js028-动画函数运用图标跳动.html</title>
+	<link rel="stylesheet" href="../css/fontawesome-all.css">
+	<style>
+		*{
+			margin: 0;
+			height: 0;
+		}
+		ul{
+			width: 800px;
+			height: 200px;
+			margin: 100px auto;
+		}
+		li{
+			width: 100px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			/* display: inline-block; */
+			list-style: none;
+			float: left;
+			border: 1px solid #000;
+			position: relative;
+
+		}
+		i{
+			font-size: 30px;
+			position: absolute;
+			top: 50px;
+			left: 20px;
+		}
+		/* p{
+			position: absolute;
+			left: 20px;
+			bottom: 10px;
+		} */
+	</style>
+	<script src = 'javas/tool.js'></script>
+	<script>
+		window.onload = function(){
+			var aLi = document.getElementsByTagName('li');
+			for(var i = 0;i<aLi.length;i++){
+				aLi[i].onmouseover = function(){
+					var oI = this.firstElementChild;
+					animation(oI,{'top':0,'opacity':0},false,function(){
+						animation(oI,{'top':50,'opacity':100},false)
+					})
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li>
+			<i class="fas fa-home"></i>
+			<p>文字</p>
+		</li>
+		<li>
+			<i class="fas fa-coffee"></i>
+			<p>文字</p>
+		</li>
+		<li>
+			<i class="fas fa-building"></i>
+			<p>文字</p>
+		</li>
+		<li>
+			<i class="fas fa-phone"></i>
+			<p>文字</p>
+		</li>
+	</ul>
+</body>
+</html>

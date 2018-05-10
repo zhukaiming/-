@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js026-同时执行多个属性.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-bottom: 20px;
+			/* opacity: 0.3; */
+		}	
+	</style>
+	<script>
+		//var timer = null;
+		function animation(obj,opation,isLinear,fnEnd){/*函数作为参数*/
+				clearInterval(obj.timer);
+				var iSpeed = 0;
+				obj.timer = setInterval(function(){
+					var isStopAll = true;/**/
+					for(attr in opation){
+					var curr = parseFloat(getComputedStyle(obj,false)[attr]);
+					var isStop = false;/*判断结束时的状态*/
+					if(attr == 'opacity'){
+						curr = Math.round(curr*100);/*四舍五入*/
+					}
+					if(isLinear){/*如果是匀速动画*/
+						if(curr>opation[attr]){/*比较当前值和目标值大小*/
+							iSpeed = -20;
+						}else{
+							iSpeed = 20;
+						}
+						if(Math.abs(opation[attr] - curr) <= Math.abs(iSpeed)){
+							isStop = true;
+						}else{
+							isStopAll = false;/**/
+						}
+					}else{/*如果是减速动画*/
+						iSpeed = (opation[attr] - curr)/10;
+						iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) :Math.floor(iSpeed);/*向上向下取整*/
+						if(!iSpeed){/**/
+							isStop = true;
+						}else{
+							isStopAll = false;
+						}
+					}			
+					//iSpeed = Math.ceil(iSpeed);
+					
+					if(isStop){/*iTarget == curr,当目标值等于当前值，*/
+						//if(attr == 'opacity')
+							
+							if(isLinear){
+								if(attr == 'opacity'){/*处理透明度*/
+								obj.style[attr] = opation[attr]/100;
+							}else{
+								obj.style[attr] = opation[attr] +'px';/*有px的*/
+								}
+							}
+					}else{
+						if(attr == 'opacity'){
+							obj.style[attr] = (curr + iSpeed)/100;
+						}else{
+							obj.style[attr] = curr + iSpeed + 'px';
+						}
+						//console.log(curr);
+					}
+					}/*for(in)*/
+					if(isStopAll){/*当所需要变化的属性同时达到目标值时，isStopAll为true,清除定时器，*/
+						clearInterval(obj.timer);
+						if(fnEnd){/**/
+							fnEnd()/*调用*/
+						}
+					}
+				},30)
+			
+		}
+		window.onload = function(){
+			var oDiv1 = document.getElementById('div1');
+			oDiv1.onmouseover = function(){
+				animation(this,{'height':500,'width':200},true,function(){
+					animation(oDiv1,{'opacity':50},true);
+				});
+				/*true为匀速动画*/
+			}
+			oDiv1.onmouseout = function(){
+				animation(this,{'height':100,'width':100},true,function(){
+					animation(oDiv1,{'opacity':100},true);
+				});
+			}
+			/*oDiv1.onmouseout = function(){
+				animation(this,'width',100,true,function(){
+					animation(oDiv1,'height',100,true,function(){
+						animation(oDiv1,'opacity',100,true);
+					});
+				});*/
+			
+		}
+		/*var oBtn = document.getElementById('btn')
+		oBtn.onclick = function(){
+		var aLi = document.createElement('li')	
+		aLi.innerHTML = otxt.value;
+		otxt.value = '';
+		oUl.insertBefore(aLi,oul.fistElementchild);
+		aLi.style.height = '0px';
+		aLi.style.opacity = '0';
+		animation(aLi,{'height':100},true);	*/
+				
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

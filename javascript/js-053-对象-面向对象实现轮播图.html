@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-053-对象-面向对象实现轮播图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.left,.right{
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			background-color: rgba(255,0,255,0.5);
+			text-align: center;
+			color: #fff;
+			font-size: 24px;
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			cursor: pointer;
+		}
+		.left{
+			left: 0;
+
+		}
+		.right{
+			right: 0;
+		}
+		.bottom{
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+		}
+		.bottom li{
+			width: 25px;
+			height: 25px;
+			background-color: pink;
+			float: left;
+			border-radius: 50%;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		.bottom li.active{
+			background-color: rgba(255,255,0,0.5);
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+<script>
+	//罗列属性
+	//获取容器
+	//初始化init
+	//绑定事件
+
+	function Carousel(option){
+		this.oBox = document.getElementById(option.id);
+		this.oImgUl = null;
+		this.aImg = option.aImg;
+		this.width = option.width;
+		this.height = option.height;
+		this.leftbtn = null;
+		this.rightbtn = null;
+		this.bottombtn = null;
+		this.now = 0;
+		this.init();
+		//绑定事件
+		this.bindEvent();
+	}
+	Carousel.prototype.init = function(){
+		this.oBox.style.width = this.width + "px";
+		this.oBox.style.height = this.height + "px";
+		this.oBox.style.position = "relative";
+		this.oImgUl = document.createElement("ul");
+
+
+
+		for(var i = 0;i<this.aImg.length;i++){
+		 var oLi = document.createElement('li');
+		 var oImg = document.createElement('img');
+		 oLi.style.position = "absolute";
+		 oLi.style.top = 0;
+		 oLi.style.left = 0;
+		 oLi.style.opacity = 0.5;
+		 oLi.style.zIndex = 0;
+		 if(i == 0){
+		 	oLi.style.opacity = 1;
+		 	oLi.style.zIndex = 50;
+		 }else{
+		 	oLi.style.opacity = 0.5;
+		 	oLi.style.zIndex = 0;
+		 }
+		 oImg.style.width = this.width + "px";
+		 oImg.style.height = this.height + "px";
+		 oImg.src = this.aImg[i];
+		 oLi.appendChild(oImg);
+		 this.oImgUl.appendChild(oLi);
+		}
+		 //按钮
+		this.leftbtn = document.createElement('span')
+		this.rightbtn = document.createElement('span')
+		//添加按钮到oBox
+
+		this.leftbtn.className = 'left';
+		this.rightbtn.className = 'right';
+		this.leftbtn.style.zIndex = 999;
+		this.rightbtn.style.zIndex = 999;
+		this.leftbtn.innerHTML = '&lt'
+		this.rightbtn.innerHTML = '&gt'
+		//添加底部按钮
+		this.bottombtn = document.createElement('ul');
+		this.bottombtn.className = 'bottom';
+		this.bottombtn.style.zIndex = 100;
+		for(var i = 0;i<this.aImg.length;i++){
+			var oLi = document.createElement('li');
+			this.bottombtn.appendChild(oLi);
+			if(i == 0){
+				oLi.className = 'active';
+			}
+		}
+		//把ul添加到oBox中
+		this.bottombtn.style.marginLeft = - this.bottombtn.offsetWidth*0.5 + 'px';//让底部按钮水平居中
+		this.oBox.appendChild(this.bottombtn);
+		this.oBox.appendChild(this.leftbtn);
+		this.oBox.appendChild(this.rightbtn);
+		this.oBox.appendChild(this.oImgUl);
+	}
+	//console.log(Carousel)
+	Carousel.prototype.bindEvent = function(){
+		//下一张
+		this.rightbtn.onclick = function(){
+			for(var i = 0;i<this.oImgUl.children.length;i++){
+				this.oImgUl.children[i].style.zIndex = 0;
+				this.oImgUl.children[i].style.opacity = 0.5;
+				this.oImgUl.children[i].className = '';
+				
+			}
+			this.now++;
+			if(this.now>=this.oImgUl.children.length){
+				this.now = 0;
+			}
+			this.oImgUl.children[this.now].style.zIndex = 50;
+			this.oImgUl.children[this.now].style.opacity = 1;
+			this.oImgUl.children[this.now].className = 'active';
+		}.bind(this);
+		this.leftbtn.onclick = function(){
+			for(var i = 0;i<this.oImgUl.children.length;i++){
+				this.oImgUl.children[i].style.zIndex = 0;
+				this.oImgUl.children[i].style.opacity = 0.5;
+				this.oImgUl.children[i].className = '';
+
+			}
+			this.now--;
+			if(this.now<0){
+				this.now = this.oImgUl.children.length - 1;
+			}
+			this.oImgUl.children[this.now].style.zIndex = 50;
+			this.oImgUl.children[this.now].style.opacity = 1;
+			this.oImgUl.children[this.now].className = 'active';
+		}.bind(this)
+	}
+	Carousel.prototype.tab = function(){
+
+	}
+	new Carousel({
+			id:'div1',
+			aImg:[
+			'images/lunbo1.jpg',
+			'images/lunbo2.jpg',
+			'images/lunbo3.jpg',
+			'images/lunbo4.jpg'],
+			width:800,
+			height:400
+		});
+	new Carousel({
+			id:'div2',
+			aImg:[
+			'images/lunbo1.jpg',
+			'images/lunbo2.jpg',
+			'images/lunbo3.jpg',
+			'images/lunbo4.jpg'],
+			width:1400,
+			height:600
+		});
+</script>
+</html>

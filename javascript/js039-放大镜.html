@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js039-放大镜.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			height: 600px;
+			position: relative;
+			top: 0;
+			left: 0;
+
+		}
+		#smallbox{
+			width: 450px;
+			height: 500px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#smallbox img{
+			width: 100%;
+			height: 100%;
+		}
+		#listbox{
+			width: 450px;
+			height: 100px;
+			border: 1px solid #ccc;
+			position: absolute;
+			left: 0;
+			top: 500px;
+		}
+		#listbox li{
+			float: left;
+			height: 100%;
+		}
+		#bigbox{
+			width: 600px;
+			height: 600px;
+			border: 1px solid #ccc;
+			position: absolute;
+			top: 0;
+			left: 452px;
+			overflow: hidden;
+			display: none;
+		}
+		#mask{
+			width: 300px;
+			height: 300px;
+			background-color: rgba(255,255,0,0.5);
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+			cursor: move;
+		}
+		.active{
+			border:2px solid yellow;
+		}
+	</style>
+	<script>
+		function $(id){
+			return document.getElementById(id);
+		}
+		window.onload = function(){
+			var aLi = $('listbox').getElementsByTagName('li');
+			var oSmallbox = $('smallbox');
+			var oBigbox = $('bigbox');
+			var oMask = $('mask');
+			for( var i = 0; i<aLi.length; i++){
+				aLi[i].index = i;
+				aLi[i].onmouseover = function(){
+					for( var j = 0;j<aLi.length;j++){
+						aLi[j].className = '';/*清空样式*/
+					}
+					this.className = 'active';
+					oSmallbox.children[0].src = "images/p_b_000"+(this.index + 1) + ".jpg"
+					oBigbox.children[0].src = "images/p_l_000"+(this.index + 1) + ".jpg"
+				}
+				//aLi[i].style.display = 'block';
+			}
+			oSmallbox.onmouseover = function(){
+					oMask.style.display = 'block';
+					oBigbox.style.display = 'block';
+					oSmallbox.onmousemove = function(ev){
+						var oEvent = ev || event;
+						var l = oEvent.clientX - oMask.offsetWidth*0.5;
+						var s = oEvent.clientY - oMask.offsetHeight*0.5;
+						if(l<0){
+							l=0;
+						}else if(l >= oSmallbox.offsetWidth - oMask.offsetWidth){
+							l = oSmallbox.offsetWidth - oMask.offsetWidth;
+						}
+						if(s<0){
+							s = 0;
+						}else if(s >= oSmallbox.offsetHeight - oMask.offsetHeight){
+							s = oSmallbox.offsetHeight - oMask.offsetHeight;
+						}
+						oMask.style.left = l + 'px';
+						oMask.style.top = s +'px';
+						//oMask.l/oBoximg.l = oMask.w/oBoximg.w;
+						var oBoximg = oBigbox.children[0];
+						oBoximg.style.left = - l/(oMask.offsetWidth/oBoximg.offsetWidth) + 'px';
+						oBoximg.style.top = - s/(oMask.offsetHeight/oBoximg.offsetHeight) + 'px';
+					}
+			}
+			oSmallbox.onmouseout = function(){
+					oMask.style.display = 'none';
+					oBigbox.style.display = 'none';
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="smallbox">
+			<img src="images/p_l_0001.jpg" alt="">
+			<span id = "mask"></span>
+		</div>
+		<div id="listbox">
+			<ul>
+				<li class = 'active'><img src="images/p_s_0001.jpg" alt=""></li>
+				<li><img src="images/p_s_0002.jpg" alt=""></li>
+				<li><img src="images/p_s_0003.jpg" alt=""></li>
+			</ul>
+		</div>
+		<div id="bigbox"><img src="images/p_l_0001.jpg" alt="" style = "position: absolute;"></div>
+	</div>
+</body>
+</html>

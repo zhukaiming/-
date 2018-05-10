@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js022-轮播图.html</title>
+	<style>
+	.lunbo{
+	width: 1082px;
+	height: 450px;
+	position: relative;
+	/* overflow: hidden; */
+}
+.imgbox{
+	width: 4328px;
+	height: 450px;
+	position: relative;
+	/* border: 1px solid #000; */
+	/* margin-top: 50px; */
+	/*animation: sport 20s linear infinite normal;
+	animation-delay: 60s ;*/
+	/* opacity: 0.4; */
+
+}
+.imgbox li{
+	width: 1082px;
+	height: 450px;
+	list-style: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* float: left; */
+}
+.lunbo span{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	color:#fff;
+	text-align: center;
+	font-size: 30px;
+	background-color: #b0a7a4;
+	cursor: pointer;
+	z-index: 333;
+	
+
+}
+.lunbo span:nth-child(1){
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin-top: 200px;
+}
+.lunbo span:nth-child(2){
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin-top: 200px;
+}
+#btnbox{
+	position: absolute;
+	top: 400px;
+	right: 50px;
+	z-index: 999;
+
+}
+#btnbox li{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 1px solid #000;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.lunbo .active{
+	background-color: red;
+}
+	</style>
+	<script src = 'javas/tool.js'></script>
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById('lunbo');
+			var oImgbox = document.getElementById('imgbox');
+			//var oLun = document.getElementById('lunbo');
+			var aLi = oImgbox.children;
+			var oLeft = document.getElementById('leftarrow');
+			var oRight = document.getElementById('rightarrow');
+			var aBtn = document.getElementById('btnbox').children;
+			var timer = null;
+			var now = 0;/*第一张*/
+			oRight.onclick = function(){
+				
+				now ++;
+				if(now>=aLi.length){
+					now = 0;
+				}
+				//aLi[now].style.marginLeft = '-1082px';
+				tab();
+				
+			}
+			oLeft.onclick = function(){
+				now --;
+				if(now<0){
+					now = aLi.length - 1;
+				}
+				tab();
+				
+			}
+			function tab(){
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].style.zIndex = 0;
+					aLi[i].style.opacity = 0;
+					aBtn[i].className = '';
+				}
+				aLi[now].style.zIndex= 30;
+				animation(aLi[now],{'opacity':100},false)
+				aBtn[now].className = 'active';
+				/*for(var i=0;i<aLi.length;i++){
+					//aLi[i].style.marginLeft = '0px';
+					aLi[i].style.zIndex = 0;
+				}*/		
+
+			}
+			for(var i=0; i<aBtn.length;i++){
+					aBtn[i].index = i;/**/
+					aBtn[i].onclick = function(){
+						now = this.index;
+						tab();
+					}
+				}
+				timer = setInterval(function(){
+					oRight.onclick();
+				},2000);
+				oBox.onmouseover = function(){
+					clearInterval(timer);/*清除定时器*/
+				}
+				oBox.onmouseout = function(){
+					timer = setInterval(function(){/*开启定时器器*/
+					oRight.onclick();
+				},1000);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="lunbo" id = "lunbo">
+		<span id = "leftarrow">&lt</span>
+		<span id = "rightarrow">&gt</span>
+		<ul class="imgbox" id = "imgbox">
+			<li><img src="images/lunbo1.jpg" alt=""></li>
+			<li><img src="images/lunbo2.jpg" alt=""></li>
+			<li><img src="images/lunbo3.jpg" alt=""></li>
+		</ul>
+		<ul id="btnbox">
+			<li class = 'active'></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

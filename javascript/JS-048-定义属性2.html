@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定义属性</title>
+	<script>
+		/*实际对象上添加属性*/
+		var obj = {};
+		Object.defineProperty(obj,"name",{value:"zhu",enumerable:true,configurable:true});/*enumerable:能不能枚举，即是否可以for(key in obj)循环configurable：能不能被修改或者删除，默认情况下均为false*/
+		Object.defineProperties(obj,{
+									"name":{value:"tom",enumerable:true,configurable:true},
+									"age":{value:18,enumerable:true,configurable:true}})
+		for(key in obj){
+			console.log(obj[key])
+		}
+		//obj.name = "kebi";
+		//delete obj.name;/*删除属性*/
+		console.log(obj)
+		console.log(Object.getOwnPropertyDescriptor(obj,"name"));/*获取属性的描述*/
+		//delete p1.legs
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

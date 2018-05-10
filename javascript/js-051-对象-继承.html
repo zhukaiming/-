@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-051-对象-继承.html</title>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function(){
+			console.log("I am " + this.name)
+		}
+		/*Person.prototype.showAge = function(){
+			console.log("I am" + this.age + "years old" )
+		}*/
+		Object.defineProperty(Person.prototype,"name",{value:function(){
+			console.log("I am" + this.age + "years old" )/*默认的enumerable为false，不可以进行for(key in obj)循环*/
+		}})
+		//var p1 = new Person("zhu",18);
+		//console.log(p1)
+
+
+		//方法的继承
+		//1:Student.prototype = Person.prototype;/**/
+		//方法的继承2:/*当用Object.*/
+		for(key in Person.prototype){
+				Student.prototype[key] = Person.prototype[key]
+		}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+		//Student.prototype = new Person();/*方法的继承3:把person的实例对象赋给student的原型对象,弊端，构造函数执行两次*/
+		function Student(name,age,classname){
+
+			Person.call(this,name,age)/*属性的继承*/
+			this.classname = classname;
+		}
+		/*Student.prototype.showName = function(){
+			console.log("I am " + this.name)
+		}
+		Student.prototype.showAge = function(){
+			console.log("I am " + this.age + "years old")
+		}*/
+		Student.prototype.showClassname = function(){
+			console.log("I am " + this.classname)
+		}
+		//方法的继承4
+		//var obj = Object.create(Person.prototype);/**/
+		//Student.prototype = obj;
+		var s1 = new Student("zhang",18,1);
+		console.log(s1)
+		s1.showClassname();
+		s1.showName();
+		s1.showAge();/**/
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

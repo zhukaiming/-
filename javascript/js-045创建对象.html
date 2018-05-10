@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js046-创建对象2.html</title>
+	<script>
+		
+		function createP(name,age){/*构造函数 类*/
+		//var obj = new Object();
+			this.name = name;/**/
+			this.age = age;
+			//this.sayName = sayName;
+			//this.sayAge = sayAge;
+		}
+			
+		
+		//return obj;
+		
+		createP.prototype.sayName = function(){
+			console.log("I am " + this.name);
+		}
+		createP.prototype.sayAge = function(){
+			console.log(this.age);
+		}
+		
+		createP.sum = function(n1,n2){
+			
+		}
+		var p1 = new createP("zhu ",18);
+		p1.sayName();
+		p1.sayAge();
+		//console.log(p1)
+		//var p2 = createP()
+
+		var p2 = new createP("tom",88);
+		p2.sayName();
+		p2.sayAge();
+		console.log(typeof p1)
+		console.log(p2.sayName == p1.sayName);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

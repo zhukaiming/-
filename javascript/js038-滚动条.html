@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+		#box{
+			width: 400px;
+			height: 50px;
+			background-color: #ccc;
+			position: relative;
+		}
+		#btn{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#div1{
+			width: 400px;
+			height: 400px;
+			position: relative;
+			overflow: hidden;
+		}
+		#div2{
+			width: 100%;
+			border: 1px solid #000;
+			position: absolute;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oBtn = document.getElementById('btn');
+			var oDiv1 = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div2');
+			disX = 0;
+			oBtn.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var disX = oEvent.clientX - oBtn.offsetLeft;
+				var l = 0;
+				document.onmousemove = function(ev){
+				var oEvent = ev || event;
+				l = oEvent.clientX - disX;
+				//oBtn.style.left = oEvent.clientX - disX + 'px';
+				
+				handleMove();
+			}
+			oBox.onmousewheel = function(ev){
+				var oEvent = ev || event;
+				//var l = 0;
+				if(oEvent.wheelDelta>0){
+					l += 10;
+				}else{
+					l -= 10;
+				}
+				//var l = oEvent.clientX - disX;
+				//oBtn.style.left = oEvent.clientX - disX + 'px';
+				handleMove();
+				
+				return false;
+			}
+			function handleMove(){
+				if(l<0){
+					l = 0;
+				}else if(l >= oBox.offsetWidth - oBtn.offsetWidth){
+					l = oBox.offsetWidth - oBtn.offsetWidth;
+				}
+				var scale = l/(oBox.offsetWidth - oBtn.offsetWidth);
+				//oDiv1.style.width = 500*scale + 'px';
+				//oDiv1.style.height = 500*scale + 'px';
+				oDiv2.style.top = (-oDiv2.offsetHeight + oDiv1.offsetHeight)*scale + 'px';
+				oBtn.style.left = l + 'px';
+			}
+			document.onmouseup = function(){
+				oBtn.onmousemove = null;
+				oBtn.onmouseup = null;
+
+			}
+		}	
+	}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="btn"></div>
+	</div>
+	<div id="div1">
+	<div id="div2">
+		《复仇者联盟3：无限战争》是由安东尼·罗素、乔·罗素执导，小罗伯特·唐尼、乔什·布洛林、克里斯·埃文斯、克里斯·海姆斯沃斯、斯嘉丽·约翰逊、马克·鲁法洛等主演的科幻片，是复仇者联盟系列电影的第三部，是漫威电影宇宙的第十九部电影，该片将与《雷神3：诸神黄昏》剧情连接，该片将于2018年4月27日在美国上映，2018年5月11日在中国大陆上映。
+该片讲述复仇者联盟和他们的超级英雄盟友们必须愿意牺牲一切，才能在灭霸毁灭宇宙之前将其击败 《复仇者联盟3：无限战争》是由安东尼·罗素、乔·罗素执导，小罗伯特·唐尼、乔什·布洛林、克里斯·埃文斯、克里斯·海姆斯沃斯、斯嘉丽·约翰逊、马克·鲁法洛等主演的科幻片，是复仇者联盟系列电影的第三部，是漫威电影宇宙的第十九部电影，该片将与《雷神3：诸神黄昏》剧情连接，该片将于2018年4月27日在美国上映，2018年5月11日在中国大陆上映。
+该片讲述复仇者联盟和他们的超级英雄盟友们必须愿意牺牲一切，才能在灭霸毁灭宇宙之前将其击败 《复仇者联盟3：无限战争》是由安东尼·罗素、乔·罗素执导，小罗伯特·唐尼、乔什·布洛林、克里斯·埃文斯、克里斯·海姆斯沃斯、斯嘉丽·约翰逊、马克·鲁法洛等主演的科幻片，是复仇者联盟系列电影的第三部，是漫威电影宇宙的第十九部电影，该片将与《雷神3：诸神黄昏》剧情连接，该片将于2018年4月27日在美国上映，2018年5月11日在中国大陆上映。
+该片讲述复仇者联盟和他们的超级英雄盟友们必须愿意牺牲一切，才能在灭霸毁灭宇宙之前将其击败 
+《复仇者联盟3：无限战争》是由安东尼·罗素、乔·罗素执导，小罗伯特·唐尼、乔什·布洛林、克里斯·埃文斯、克里斯·海姆斯沃斯、斯嘉丽·约翰逊、马克·鲁法洛等主演的科幻片，是复仇者联盟系列电影的第三部，是漫威电影宇宙的第十九部电影，该片将与《雷神3：诸神黄昏》剧情连接，该片将于2018年4月27日在美国上映，2018年5月11日在中国大陆上映。
+该片讲述复仇者联盟和他们的超级英雄盟友们必须愿意牺牲一切，才能在灭霸毁灭宇宙之前将其击败 《复仇者联盟3：无限战争》是由安东尼·罗素、乔·罗素执导，小罗伯特·唐尼、乔什·布洛林、克里斯·埃文斯、克里斯·海姆斯沃斯、斯嘉丽·约翰逊、马克·鲁法洛等主演的科幻片，是复仇者联盟系列电影的第三部，是漫威电影宇宙的第十九部电影，该片将与《雷神3：诸神黄昏》剧情连接，该片将于2018年4月27日在美国上映，2018年5月11日在中国大陆上映。
+该片讲述复仇者联盟和他们的超级英雄盟友们必须愿意牺牲一切，才能在灭霸毁灭宇宙之前将其击败 《复仇者联盟3：无限战争》是由安东尼·罗素、乔·罗素执导，小罗伯特·唐尼、乔什·布洛林、克里斯·埃文斯、克里斯·海姆斯沃斯、斯嘉丽·约翰逊、马克·鲁法洛等主演的科幻片，是复仇者联盟系列电影的第三部，是漫威电影宇宙的第十九部电影，该片将与《雷神3：诸神黄昏》剧情连接，该片将于2018年4月27日在美国上映，2018年5月11日在中国大陆上映。
+该片讲述复仇者联盟和他们的超级英雄盟友们必须愿意牺牲一切，才能在灭霸毁灭宇宙之前将其击败 
+	</div>
+	</div>
+
+</body>
+</html>

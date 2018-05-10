@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js033-只能输入数字.html</title>
+	<script>
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			oTxt.onkeydown = function(ev){
+				oEvent = ev || event;
+				console.log(oEvent.keyCode);
+				if(oEvent.keyCode<8 || oEvent.keyCode>57){
+					return false;
+				}
+				
+				//console.log(oEvent.keyCode);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id = 'txt'>
+</body>
+</html>

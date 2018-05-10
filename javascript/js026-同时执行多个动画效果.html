@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js026-同时执行多个动画效果.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-bottom: 20px;
+			/* opacity: 0.3; */
+		}		
+	</style>
+	<script>
+		//var timer = null;
+		function animation(obj,attr,iTarget,isLinear,fnEnd){/*函数作为参数*/
+				clearInterval(obj.timer);
+				var iSpeed = 0;
+				obj.timer = setInterval(function(){
+					
+					var curr = parseFloat(getComputedStyle(obj,false)[attr]);
+					var isStop = false;/*判断结束时的状态*/
+					if(attr == 'opacity'){
+						curr = Math.round(curr*100);/*四舍五入*/
+					}
+					if(isLinear){/*如果是匀速动画*/
+						if(curr>iTarget){/*比较当前值和目标值大小*/
+							iSpeed = -20;
+						}else{
+							iSpeed = 20;
+						}
+						if(Math.abs(iTarget-curr) <= Math.abs(iSpeed)){
+							isStop = true;
+						}					
+					}else{/*如果是减速动画*/
+						iSpeed = (iTarget - curr)/10;
+						iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) :Math.floor(iSpeed);/*向上向下取整*/
+						if(!iSpeed){
+							isStop = true;
+						}
+					}
+					
+					//iSpeed = Math.ceil(iSpeed);
+					
+					if(isStop){/*iTarget == curr*/
+						//if(attr == 'opacity')
+							clearInterval(obj.timer);
+							if(isLinear){
+								if(attr == 'opacity'){/*处理透明度*/
+								obj.style[attr] = iTarget/100;
+							}else{
+								obj.style[attr] = iTarget +'px';/*有px的*/
+								}
+							}
+
+							if(fnEnd){/**/
+								fnEnd();/*调用*/
+							}
+
+					}else{
+						if(attr == 'opacity'){
+							obj.style[attr] = (curr + iSpeed)/100;
+						}else{
+							obj.style[attr] = curr + iSpeed + 'px';
+						}
+						//console.log(curr);
+					}
+				},30)
+		}
+		window.onload = function(){
+			var oDiv1 = document.getElementById('div1');
+			oDiv1.onmouseover = function(){
+				animation(this,'width',400,true,function(){/**/
+						animation(oDiv1,'height',400,true,function(){
+							animation(oDiv1,'opacity',50,true);
+						});
+				});/*true为匀速动画*/
+			}
+			oDiv1.onmouseout = function(){
+				animation(this,'width',100,true,function(){
+					animation(oDiv1,'height',100,true,function(){
+						animation(oDiv1,'opacity',100,true);
+					});
+				});
+			}
+		}				
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

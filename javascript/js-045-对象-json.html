@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-045-对象-json.html</title>
+	<script>
+		var json = '{"name":"kebi","age":23}';
+		console.log(typeof json);
+		var jsonObj = JSON.parse(json);/*转化为js对象*/
+		console.log(jsonObj.name);
+		var obj = {
+			
+			age : 18,
+			name: "zhu"
+		};
+		var objJson = JSON.stringify(obj);/*转化为json对象*/
+		console.log(objJson);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

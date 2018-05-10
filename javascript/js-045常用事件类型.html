@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-常用事件类型.html</title>
+	<style>
+
+	</style>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var oTxt = document.getElementById('txt');
+			var oUse = document.getElementById('username');
+			var oList = document.getElementById('list');
+			var oForm = document.getElementById('form');
+			var oReset = document.getElementById('reset');
+			var data = ['Susan','wanger','jieke','Faker','fsfs','sfs'];
+			var oSpal = false;
+			var isLoad = false;
+			oUse.onfocus = function(){
+				//oTxt.innerHTML = '请输入';
+				oTxt.style.color = 'red';
+				oTxt.innerHTML = '输入三到六位数字';
+
+			}
+			oUse.onblur = function(){
+				//oUse.style.background = 'blue';
+				var l = oUse.value.length;
+				if( l>=3 && l<=6){
+					oTxt.innerHTML = '正确';
+					oSpal = true;
+				}else{
+					oTxt.innerHTML = '错误';
+				}
+			}
+			/*oUse.onkeypress = function(){
+
+			}
+			oUse.onkeyup = function(){
+
+			}*/
+			oUse.oninput = function(){/*输入后触发*/
+				if(isLoad){
+					return false;
+				}
+				for(var i = 0; i < data[i].length; i++){
+					var oLi = document.createElement('li');
+					oLi.innerHTML = data[i];
+					oList.appendChild(oLi);
+				}
+				isLoad = true;
+			}
+			/*oForm.onsubmit = function(){
+				alert('123');
+			}
+			oForm.onreset = function(){
+				alert('123');
+			}*/
+			oBtn.onclick = function(){
+				if(!oSpal){
+					return false;/*阻止提交*/
+				}
+			}
+			oList.onclick = function(ev){
+				oEvent = ev || event;
+				oUse.value = ev.target.innerHTML;
+				oTxt.innerHTML = '正确';
+				oSpal = true;
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="http://www.baidu.com" id = "form">
+		<p>
+		<input type="text" value ="" id = "username" name = "username">
+		<span id = "txt"></span>
+		<ul id = "list"></ul>
+		</p>
+		<p>
+		<input type="submit" value ="提交" id = "btn" >
+		<input type="reset" value ="重置" id = "btn" >
+		</p>
+		
+	</form>
+</body>
+</html>
