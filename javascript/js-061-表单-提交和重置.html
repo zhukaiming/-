@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-061-表单-提交和重置.html</title>
+</head>
+<body>
+	<form action="http:baidu.com">
+		<div>
+			<input type="text" name = "username">
+		</div>
+		<div>
+			<input type="text" name = "age">
+		</div>
+		<div>
+			性别:<input type="radio" name = "sex">男
+			<input type="radio" name = "sex">女
+		</div>
+		<div>
+			爱好:<input type="checkbox" name = "fav">游泳
+			<input type="checkbox" name = "fav">足球
+			<input type="checkbox" name = "fav">篮球
+		</div>
+		<div>
+			<select name="city" id="city">
+				<option value="zheng">郑州</option>
+				<option value="bj">北京</option>
+				<option value="am">澳门</option>
+			</select>
+		</div>
+		<div>
+			<input type="submit" value = "提交1" id = "btn1">
+			<input type="button" value = "测试" id = "txt">
+			<input type="button" value = "提交2" id = "btn2">
+			<input type="image" src = "images/0.png">
+			<input type="reset" value = "重置1" id = "ch1">
+			<input type="reset" value = "重置2" id = "ch2">
+		</div>
+	</form>	
+</body>
+<script>
+	var oForm = document.forms[0];
+	var oBtn1 = document.getElementById('btn1')
+	var oBtn2 = document.getElementById('btn2')
+	var oCh1 = document.getElementById('ch1')
+	var oCh2 = document.getElementById('ch2')
+ 	console.log(oForm)
+	console.log(oForm[0])
+	/*oBtn1.onclick = function(){
+		console.log('sub...')
+		return false;
+	}*/
+	/*oForm.onsubmit = function(){
+		console.log('sub...')
+		return false;
+	}*/
+	/*oBtn2.onsubmit = function(){
+		console.log('sub...')
+		return false;
+	}*/
+	oCh1.onreset = function(){
+		console.log('chong...')
+		return false;
+	}
+	oCh1.onclick = function(){
+		console.log('chong...')
+		//return false;
+	}
+	oForm.onreset = function(){
+		console.log('chong...')
+		return false;
+	}
+</script>
+</html>

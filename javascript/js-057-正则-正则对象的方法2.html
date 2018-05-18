@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-057-正则-正则对象的方法2.html</title>
+	<script>
+		//exec方法
+		var reg = /(\d{4})-(\d{2})-(\d{2})/g;
+		var str = 'fg2018-05-10'
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

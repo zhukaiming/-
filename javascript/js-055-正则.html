@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-055-正则-是否有汉字.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "this is a god day https://www.baidu.com";
+	//var str = '主 十分舒服sfsfsfd'
+	var reg = /(\w+):\/\/([\w\.]+)\/(\w*)/;
+	//var reg = /[\u4e00-\u9fa5]+/g;
+	console.log(reg.test(str));
+	console.log(str.match(reg));
+</script>
+</html>

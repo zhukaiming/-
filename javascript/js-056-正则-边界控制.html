@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>js-056-正则-边界控制.html</title>
+	<script>
+
+		//前瞻
+		str = 'a2*3b$sdffg3fsd5';
+		reg = (/\w(?=\d)/g);//字符后面是数字的字符
+		console.log(str.replace(reg,'X'))
+
+		//负向前瞻
+		//var str = 'a2*3b&';
+		//var reg = /\w(?!\d)/g
+		console.log('fd4&sd4'.replace(/\w(?!\d)/g,'X'))//字符后面不是数字的字符
+
+		str = 'a2s3d4f5sfdfgdgfaads';
+
+		//边界控制
+		console.log('a2s3d4f5sfdfgdgfaads'.replace(/([a-z]\d){4}/,"*"));//匹配四个一个小写字母加一个数字的字符串
+		console.log('2018-05-12'.replace(/(\d{4})-(\d{2})-(\d{2})/,'$2/$3/$1'))
+		//
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

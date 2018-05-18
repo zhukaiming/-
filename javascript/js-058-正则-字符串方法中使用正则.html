@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js058-正则-字符串方法中使用正则.html</title>
+	<script>
+		//var str = 'as2018-05-12';
+		//console.log('a1s2d3f4'.split(/\d/))//
+		console.log('fd&gh2018-05-13gh34sdds'.match(/(\d{4})-(\d{2})-(\d{2})/))//非全局：和exec一样，match方法，对字符串执行搜索,并更新正则对象上的lastIndex属性,如果没有匹配的返回null,有的话返回一个数组:
+		console.log('fd&gh2018-05-13gh34sdds'.match(/(\d{4})-(\d{2})-(\d{2})/g))//match方法，全局：找到字符串中的所有匹配字符串,如果没有匹配的话返回null,有的话返回一个数组:
+		//console.log('2017-05-12'.math(/(\d{4})-(\d{2})-(\d{2})/));
+		//console.log('dfe23dfd'.search('d'));
+		var str = 'q1s2e3r4'.replace(/\d/g,function(match){
+			//console.log(match)
+			//consolog.log()
+			return parseInt(match)+1;
+		})
+		//console.log(str);
+		var encod = encodeURIComponent('http://www.baidu.com');//URI编码
+		console.log(encod)
+		var deco = decodeURIComponent(encod)//URI解码
+		console.log(deco)
+		var str = 'wrtdHXGgt';
+		console.log(str.indexOf('H'))//从前向后找，找不到返回-1
+		console.log(str.lastIndexOf('H') )//从后向前找
+		console.log(str.slice(-1,3))//截取字符串，负数从尾部开始
+		console.log(str.substr(-2,3))//截取字符串
+		console.log(str.substring(0,3))//截取字符串
+		console.log(str.toLowerCase())//转化成小写
+		console.log(str.toUpperCase())//转化成大写
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
