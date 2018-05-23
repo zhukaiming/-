@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008观察者模式2.html</title>
+
+</head>
+<body>
+	
+</body>
+	<script>
+		(function(w){
+			function Load(name){
+				this.oInput = null;
+				this.init(name);//初始化传递
+				this.foreigns = [];
+				
+				
+			}
+			Load.prototype = {
+				constructor :Load,
+				//__proto__ :Object.prototype,
+				 init:function(name){
+				 	var oP = document.createElement('p');
+				 	oP.innerHTML = name;
+				 	this.oInput = document.createElement('input');
+				 	oP.appendChild(this.oInput);
+				 	document.body.appendChild(oP);
+				 },
+				 
+				 register:function(foregin){//register方法,用于注册对象，添加到foreigns数组;
+				 	this.foreigns.push(foregin);//把foregin对象添加foreigns
+				 },
+				 publish:function(){//发布
+				 	this.oInput.oninput = function(){
+				 		for(var i = 0;i<this.foreigns.length;i++){
+				 			this.foreigns[i].listen(this.oInput.value);//
+				 		}
+				 	}.bind(this);
+				 }
+			}
+			w.Load = Load;
+		})(window);
+		(function(w){
+			function Foreign(name,rate,load){
+				this.init(name);
+				this.oInput = null;
+				load.register(this);//
+				this.rate = rate;
+			}
+			Foreign.prototype = {
+				constructor:Foreign,
+				//__proto__ :Object.prototype,
+				 init:function(name){
+				 	var oP = document.createElement('p');
+				 	oP.innerHTML = name;
+				 	this.oInput = document.createElement('input');
+				 	oP.appendChild(this.oInput)
+				 	document.body.appendChild(oP);
+				 },
+				 listen:function(val){
+				 	this.oInput.value = val / this.rate;
+				 }
+			},
+			w.Foreign = Foreign;
+		})(window);
+		var t1 = new Load('人民币');
+		var t2 = new Foreign('美元',6,t1)
+		t1.publish();
+	</script>
+</html>

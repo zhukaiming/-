@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007函数节流.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//让函数延时执行
+	/*
+	var timer = null;
+	window.onresize = function(){
+		clearTimeout(timer);
+		timer = setTimeout(function(){
+			console.log(window.innerWidth)
+		},400)
+		
+	}
+	*/
+	function throttle(fn,delay){
+		var timer = null;
+		return function(){//返回一个函数
+			clearTimeout(timer);
+			setTimeout(fn,delay);
+
+		}
+	}
+	window.onresize = throttle(function(){//调用throttle
+		console.log(window.innerWidth)
+	},500)
+
+	
+
+</script>
+</html>

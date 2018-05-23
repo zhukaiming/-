@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010单例模式-皇帝上朝.html</title>
+	<script>
+		(function(w){
+			function King(){
+				this.name = '皇帝';
+				this.id = Math.random();
+				/*var fn = (function(){
+					var king = null;
+					return function(){
+						if(!king){
+							//this.name = '皇帝';
+							//this.id = Math.random();
+							king = {
+								name:'皇帝',
+								id:Math.random()
+							}
+						}
+						return king;
+
+					}
+				})();
+
+				console.log(fn())
+				return fn();*/
+			}
+			King.prototype = {
+				constructor :King,
+				__proto__:Object.prototype,
+				say:function(){
+					console.log(this.name + this.id + '防守对方');
+				},
+			}
+			King.getking = (function(){//闭包:调用getking,相当于调用return返回的函数，
+				var king = null;
+				return function(){//闭包:函数的子函数可以使用父函数的属性，变量
+					if(!king){
+						king = new King();
+					}
+					return king;
+				}
+
+			})()
+			w.King = King;
+		})(window);
+		
+		for( var i = 0;i<=5;i++){
+				//King.say();
+				//new King().say();
+				console.log('day',)
+				King.getking().say();
+			}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008观察者模式.html</title>
+	<script>
+
+		//
+		(function(w){
+			function teacher(name){
+				this.name = name;
+				this.students = [];
+
+			}
+			teacher.prototype = {
+				constructor:teacher,
+				__proto__ :Object.prototype,
+				register:function(student){//register方法,用于注册对象，添加到students数组;
+					this.students.push(student);
+				},
+				publish:function(msg){
+					for(var i = 0;i<this.students.length;i++){
+						this.students[i].listen(msg);//调用listen,然后发布
+					}
+				}
+			}
+			w.teacher = teacher;
+		})(window);
+
+
+		(function(w){
+			function student(name,teacher){
+				this.name = name;
+				teacher.register(this);//调用teacher.register方法,把自己传递进去
+				this.msg = '';
+			}
+			student.prototype = {
+				constructor:student,
+				__proto__ :Object.prototype,
+				listen:function(msg){//lsiten方法，接收消息，并储存
+					this.msg = msg;
+				}
+			}
+			w.student = student;
+		})(window);
+		var t1 = new teacher('zhu')
+		var s1 = new student('dadas',t1);
+		t1.publish('王城')
+		console.log(t1)
+		console.log(s1)
+		t1.publish();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

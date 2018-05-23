@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004封闭空间.html</title>
+	<script>
+		/*(function(){
+			var na = 'sfdsdf'
+			console.log(na)
+		})()*/		
+		//var fn = 'bbq'
+		(function(){
+			var na = 'bbd';
+			//console.log(na)
+			//console.log(fn);
+			(function(){
+				console.log(na)
+			})()
+		})()
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

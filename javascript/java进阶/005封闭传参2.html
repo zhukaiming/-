@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>005封闭传参2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul li{
+			width: 500px;
+			height: 50px;
+			border: 1px solid #ccc;
+		}
+		.active{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class = "active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script>
+	var aLi = document.getElementsByTagName('li');
+	var lastone = 0;
+	for(var i = 0;i<aLi.length;i++){
+		/*aLi[i].onmouseover = function(){
+			for(var j = 0;j<aLi.length;j++){
+				aLi[j].className = '';
+
+			}
+			this.className = 'active';
+		}*/
+		(function(index){
+			//console.log(index)
+			aLi[index].onmouseover = function(){
+				aLi[lastone].className = '';
+				this.className = 'active';
+				lastone = index;
+			}
+		})(i)		
+	}
+
+</script>
+</html>
