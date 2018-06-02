@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031jQuery动画方法.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-top: 20px;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').eq(0).click(function(){
+				$('div').eq(0)
+				.animate(
+					{width:400},
+					2000,
+					'linear')
+				.animate(
+					{height:400},
+					2000)
+				$('div').eq(1)
+				.animate(
+					{width:400},
+					1000)
+				.animate(
+					{height:400},
+					1000)
+			})
+			$('button').eq(1).click(function(){
+				//$('div').stop(true,false);
+				//第一个参数默认是false,表示不清空,如果是true,后续动画不执行
+				//第二个参数默认是false,表示停止在当前状态,如果是ture,则跳到正在执行动画的最后状态
+				$('div').delay(1000);//延迟动画只对后面的动画起作用
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>开始动画</button>
+	<button>停止动画</button>
+	<div></div>
+	<div></div>
+</body>
+</html>

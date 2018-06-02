@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043对象级别插件.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #ccc;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		;(function($){
+			console.log($);
+			$.fn.extend({
+				setcolor:function(option){
+					console.log(this);
+					//console.log(option);
+
+					var defaults = {
+						color:'red'
+					}
+					option = $.extend(defaults,option)//
+					//this.css('color',option.color)
+					this.each(function(){//循环
+						this.style.color = option.color;
+					})
+
+				}
+			})
+		})(jQuery);
+	</script>
+	<script>
+		$(function(){
+			/*$.prototype.setcolor = function(option){//
+				console.log(this);
+				console.log(option);
+
+				var defaults = {
+					color:'red'
+				}
+				option = $.extend(defaults,option)//
+				this.css('color',option.color)
+				this.each(function(){
+					this.style.color = option.color
+				})
+			}*/
+			/*$('div').setcolor({
+				color:'blue'
+			})*/
+			$('button').click(function(){
+
+				$('div').setcolor({
+					color:'blue'
+				});//调用
+			})
+	})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div>111</div>
+	<div>222</div>
+	<div>333</div>
+	<div>444</div>
+</body>
+</html>

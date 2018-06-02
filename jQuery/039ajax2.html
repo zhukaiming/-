@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039ajax2.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(data){
+				/*$.get("039-data1.json","name=zhu&age=20",function(data){
+					console.log(data,name)
+				},'json')*/
+				/*$.get("./039-data1.json",function(data){
+					console.log(data.age);
+				},'json')*/
+				/*$.post("039-data1.json",function(data){
+					console.log(data,name)
+				},'json')*/
+				$.getScript("./039data.js",function(data){//获取js代码
+					console.log(data)
+				})
+				
+			})	
+		})
+	</script>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+</html>

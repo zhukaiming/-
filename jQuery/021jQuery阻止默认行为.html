@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止默认行为</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('input').click(function(ev){
+				alert('ceshi');
+				//event.preventDefault();//法1
+				return false;//法2
+			})
+		})
+	</script>
+</head>
+<body>
+	<a href="http://www.baidu.com">wwwzzz</a>
+	<form action="http://www.baidu.com">
+		<input type="submit" value = "阻止默认行为" >
+	</form>
+</body>
+</html>

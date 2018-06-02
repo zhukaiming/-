@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027jQuery选项卡制作.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.btn{
+			overflow: hidden;
+		}
+		.btn li{
+			width: 80px;
+			height: 40px;
+			line-height: 40px;
+			display: inline-block;
+			border: 1px solid #ccc;
+
+		}
+		.btn li.active{
+			background-color: #000;
+			color: #fff;
+		}
+
+		.content li{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			display: none;
+		}
+		.content li.show{
+			display: block;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.btn li').mouseenter(function(){
+				console.log($(this));
+				var $this = $(this);
+				$this.addClass('active');
+				$this.siblings().removeClass('active');
+
+				//$index = this.index();
+				var $sell = $this.index();
+				var $cull = $('.content li').eq($sell);
+
+				$cull.addClass('show');
+				$cull.siblings().removeClass('show')
+			})	
+		})
+	</script>
+</head>
+<body>
+	<ul class = "btn">
+		<li class = "active">btn1</li>
+		<li>btn1</li>
+		<li>btn1</li>
+		<li>btn1</li>
+	</ul>
+	<ul class = "content">
+		<li class ="show">content1</li>
+		<li>content2</li>
+		<li>content3</li>
+		<li>content4</li>
+	</ul>
+</body>
+</html>

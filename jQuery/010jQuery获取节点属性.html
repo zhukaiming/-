@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010jQuery原生JS操作操作属性节点.html</title>
+
+</head>
+<body>
+	<div id="div1" index = "0"></div>
+</body>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		var oDiv = document.getElementById('div1');
+		//console.log(oDiv.getAttribute('id'));//可以操作获取自定义的，和非自定义的属性
+		//console.log(oDiv.id);
+		//console.log(oDiv['id']);
+		console.log(oDiv.getAttribute('index'));
+
+		console.log(oDiv.setAttribute('id','div2'));//设置修改属性
+		console.log(oDiv.setAttribute('index','ccc'));//设置修改属性
+
+	</script>
+</html>

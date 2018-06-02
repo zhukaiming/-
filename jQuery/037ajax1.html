@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037ajax1.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				$.ajax({
+					url:'http://127.0.0.1:3000/038data1.json',
+					type:"GET",
+					//data:{name:"zhu",age:20},//发送到服务器的数据，字符串键值对或者对象
+					dataType:"json",
+					//
+					success:function(data,statusMsg,jqXHR){//ajax对象
+						console.log(data,statusMsg,jqXHR);
+					},
+					//
+					error:function(jqXHR,statusMsg){
+						console.log("1::",jqXHR,statusMsg)
+					},
+					complete:function(jqXHR,statusMsg){//只要ajax完成都会调用
+						console.log("2::",jqXHR,statusMsg)
+					},
+					//timeout:1000
+					statusCode:{//设置不同状态码的回调函数
+						404:function(){
+							console.log('not found')
+						}
+					}
+					/*headers:{//设置请求头
+						"text":"text"
+					}*/
+				})
+			});
+		
+	})
+	</script>
+
+</head>
+<body>
+	<button>测试</button>
+</body>
+</html>

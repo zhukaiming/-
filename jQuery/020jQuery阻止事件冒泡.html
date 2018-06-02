@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020jQuery阻止事件冒泡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.grand{
+			width: 400px;
+			height: 400px;
+			background-color:blue;
+			position: relative;
+		}
+		.fat{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: absolute;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			position: absolute;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.son').click(function(ev){
+				alert('zhang');
+				ev.stopPropagation();
+				return false;
+			})
+			$('.fat').click(function(ev){
+				alert('zhang');
+				//ev.stopPropagation();
+				//return false;
+			})
+			$('.grand').click(function(ev){
+				alert('zhang');
+				//ev.stopPropagation();
+				//return false;
+			})
+	})
+	</script>
+</head>
+<body>
+	<div class="grand">
+		<div class="fat">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>

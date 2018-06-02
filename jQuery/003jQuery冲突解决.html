@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>003jQuery冲突解决.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		//var arr = 'text';
+		(function(w){
+			function text(){
+			alert('text');				
+			}
+
+			w.$ = text;
+		})(window)
+
+		/*$(function(){
+
+		})*/
+	</script>
+	<script>
+		//解决方法
+		//jQuery.noConflict();
+		var kz = jQuery.noConflict();
+		$();
+		/*
+		jQuery(function(){
+			alert('aa');
+		});
+		*/
+		kz(function(){
+			alert('abb');
+		})
+		console.log(jQuery == $);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

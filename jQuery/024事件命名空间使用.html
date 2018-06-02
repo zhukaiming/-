@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024jQuery事件命名空间使用.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.grand{
+			width: 400px;
+			height: 400px;
+			background-color:blue;
+			position: relative;
+		}
+		.fat{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: absolute;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			position: absolute;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.son').on('click.zs',function(){
+				alert('son1')
+			})
+			$('.son').on('click.ls',function(){
+				alert('son2')
+			})
+			$('.fat').on('click.zs',function(){
+				alert('father1');
+			})
+			$('.fat').on('click.ls',function(){
+				alert('father2');
+			})
+			//$('.son').trigger('click');//
+			//$('.son').trigger('click.ls');//
+			//$('.fat').trigger('click.ls');//
+			$('.son').trigger('click.ls');//用trigger触发子元素没有命名空间的事件时,子元素所有相同类型的事件和父元素所有相同类型的事件都会被触发
+
+	})
+	</script>
+</head>
+<body>
+	<div class="grand">
+		<div class="fat">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>

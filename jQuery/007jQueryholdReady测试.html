@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>007jQueryholdReady测试.html</title>
+</head>
+<body>
+	<input type="button" value = "测试" id = "btn">
+</body>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$.holdReady(true);//参考为true时暂停jQuery入口函数的执行,参数为false时恢复jQuery入口函数的执行
+		$(function(){
+			alert('jQ');	
+		})
+		var likearr = $(function(){
+			//alert('jQ');	
+		});
+		var oBtn = document.getElementById('btn');
+
+		oBtn.onclick = function(){
+			$.holdReady(false);
+		}
+		console.log($.isWindow(oBtn));//判断参数对象是不是window对象
+		console.log($.isArray(likearr));// 判断参数对象是不是真数组
+		console.log($.isFunction(likearr));// 判断参数对象是不是函数
+	</script>
+</html>

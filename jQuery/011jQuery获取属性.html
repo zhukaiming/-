@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011jQuery获取属性.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			console.log($('input').attr('value'));
+			//console.log($('input').prop('value','eee'));//
+			//console.log($('input').removeProp('value'));//移除属性
+			$('input').eq(0).attr('value','rrr');//设置属性
+			$('input').eq(1).prop('value','ttt');//设置属性
+			console.log($('input').eq(0).attr('name'));//获取属性
+			console.log($('input').eq(1).prop('name'));//
+			console.log($('input').eq(1).prop('index',0));//
+			console.log($('input').eq(3).attr('index',0));//
+			console.log($('input').eq(2).removeProp('value'));//移除属性
+			console.log($('input').eq(3).attr('checked'));//
+			console.log($('input').eq(3).prop('checkbox'));//
+
+	})
+	</script>
+</head>
+<body>
+	<input type="text" value = "zzz" name = "a1">
+	<input type="text" value = "qqq" name = "b1">
+	<input type="text" value = "www" name = "c1">
+	<input type="checkbox" checked = "">
+</body>
+</html>

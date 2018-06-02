@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040ajax3全局配置.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				var jqXHR = $.ajax({
+				url:'039-data1.json',
+				type:'GET',
+				dataType:"json",
+
+			});
+			jqXHR.done(function(data,statusMsg,jqXHR){
+				console.log(data,statusMsg,jqXHR)
+			});
+			jqXHR.fail(function(jqXHR,statusMsg){
+				console.log(jqXHR,statusMsg)
+			})
+		})
+			
+
+	})
+	</script>
+</head>
+<body>
+	<button>获取</button>
+</body>
+</html>

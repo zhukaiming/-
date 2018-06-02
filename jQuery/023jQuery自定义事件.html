@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023jQuery自定义事件.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('input').on('syclick',function(){
+				alert('submit');
+			})
+			$('input').trigger('syclick');
+		})
+	</script>
+</head>
+<body>
+	<form action="https://www.baidu.com">
+		<input type="submit" value = "ceshi">
+	</form>
+</body>
+</html>

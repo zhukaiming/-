@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044选项卡插件.html</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.tab{
+			margin: 20px auto;
+		}
+		.btn li{
+			width: 50px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border: 1px solid #000;
+			display: inline-block;
+
+		}
+		.active{
+			background-color: blue;
+		}
+		.content li{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			display: none;
+
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		;(function($){
+			$.fn.extend({
+				tab:function(options){
+					var defaults = {
+						activeClass : 'active',
+						btnselector : ".btn li",
+						contentselector : ".content li",
+						eventtype : "click"
+
+					}
+					options = $.extend(defaults,options);//将一个或多个对象的内容合并到目标对象
+					this.each(function(){//循环tab
+						var $tab = $(this);
+						var $btn = $tab.find(options.btnselector);//
+
+						$btn.on(options.eventtype,function(){
+							$(this).addClass(options.activeClass).siblings().removeClass(options.activeClass);//为当前设置active的同时，清除相邻元素的active
+							var index = $(this).index();//取出当前所点击的下标
+							console.log(index)
+							$tab.find(options.contentselector).eq(index).show().siblings().hide();//
+						})
+					})
+				}
+			})
+		})(jQuery);
+	</script>
+	<script>
+		$(function(){
+			$('.tab').tab();
+		})
+	</script>
+</head>
+<body>
+	<div class = "tab">
+		<ul class = "btn">
+			<li class ="active">11</li>
+			<li>22</li>
+			<li>33</li>
+			<li>44</li>
+		</ul>
+		<ul class = "content">
+			<li style = "display: block">内容1</li>
+			<li>内容2</li>
+			<li>内容3</li>
+			<li>内容4</li>
+		</ul>
+	</div>
+	<div class = "tab">
+		<ul class = "btn">
+			<li class ="active">11</li>
+			<li>22</li>
+			<li>33</li>
+			<li>44</li>
+		</ul>
+		<ul class = "content">
+			<li style = "display: block">内容1</li>
+			<li>内容2</li>
+			<li>内容3</li>
+			<li>内容4</li>
+		</ul>
+	</div>
+</body>
+</html>

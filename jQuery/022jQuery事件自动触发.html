@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022jQuery事件自动触发.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('input').click(function(ev){
+				alert('ceshi');
+				//event.preventDefault();//法1
+				//return false;//法2
+			})
+			//$('input').trigger('click');//不阻止事件冒泡和默认行为的事件触发
+			$('input').triggerHandler('click');// 阻止事件冒泡和默认行为的事件触发
+
+			$('a').click(function(){//a标签用trigger不阻止事件冒泡,但是会阻止默认行为,如果需要发生默认行为需要触发a标签的子元素
+				alert('a');
+			})
+			$('a').trigger('click');
+		})
+	</script>
+</head>
+<body>
+	<a href="http://www.baidu.com"><span>wwwzzz</span></a>
+	<form action="http://www.baidu.com">
+		<input type="submit" value = "阻止默认行为" >
+	</form>
+</body>
+</html>

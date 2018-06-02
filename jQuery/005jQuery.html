@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>005jQuery.jQ转化为dom.dom转化jQhtml</title>
+	<style>
+		div{
+			width: 50px;
+			height: 50px;
+			border: 1px solid #ccc;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			//jQ转化为dom
+			var $div = $('div');
+			console.log($div);
+			var oDiv1 = $div[0];
+			var oDiv2 = $div.get(1);
+			oDiv1.style.background = 'red';
+			oDiv2.style.background = 'blue';
+
+			console.log(oDiv1);
+
+			//dom转化jQ
+			var div3 = document.getElementById('div3');
+
+			var $div3 = $(div3);
+			console.log($div3)
+			/*$div3.css({
+				/
+			})*/
+		})
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div id = "div3"></div>
+</body>
+</html>

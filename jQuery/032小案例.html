@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032小案例.html</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.box1{
+			position: absolute;
+			left: 50%;
+			top: 100px;
+			margin-left: -100px;
+		}
+		.box1 .li1{
+			display: inline-block;
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			border: 1px solid #ccc;
+			list-style: none;
+		}
+		.box1 .li1 .active{
+			transform: rotate(180deg);
+			
+		}
+		.box1 .li1:hover{
+			color:red;
+		}
+		.box1 .li2{
+			width: 100px;
+			height: 200px;
+			background-color: blue;
+			display: none;
+		}
+		.box2{
+			position: absolute;
+			left: 50%;
+			top: 100px;
+		}
+		
+		.box2 .li1{
+			display: inline-block;
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			border: 1px solid #ccc;
+			list-style: none;
+		}
+		
+		.box2 .li2{
+			width: 100px;
+			height: 200px;
+			background-color: blue;
+			display: none;
+		}
+		.box2 .li1:hover{
+			color:red;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			var $li1 = $('.box1 .li1');
+			$li1.eq(0).mouseenter(function(){
+				//$('.box1 .li1 span').eq(1).animate({transform:rotateX(90deg)},1000);
+				$('.box1 .li2').slideDown(1000,function(){
+					/*$('.box1 .li1 span').eq(1).css({
+					transform:'rotateZ(180deg)'
+					})*/
+				})
+				
+			})
+
+			$('.box1 .li2').hover(function(){
+				$('.box1 .li2').stop(true,true);
+			})
+
+			$li1.eq(0).mouseleave(function(){
+				$('.box1 .li2').slideUp(1000,function(){
+					
+				})
+
+			})
+			var $li2 = $('.box2 .li1')
+			$li2.eq(0).mouseenter(function(){
+				$('.box2 .li2').slideDown(1000,function(){
+
+				})
+			})
+			$li2.eq(0).mouseleave(function(){
+				$('.box2 .li2').slideUp(1000,function(){
+					
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul class = "box1">
+		<li class = "li1">
+			<span>我的淘宝</span>
+			<span>&and;</span>
+		</li>
+		<li class = "li2">
+			<p>已经买的</p>
+			<p>足迹</p>
+		</li>
+	</ul>
+	<ul class = "box2">
+		<li class = "li1">
+			<span>收藏夹</span>
+			<span>&or;</span>
+		</li>
+		<li class = "li2">
+			<p>已经买的</p>
+			<p>足迹</p>
+		</li>		
+	</ul>
+</body>
+</html>

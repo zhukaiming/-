@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012jQuery操作class.html</title>
+	<style>
+		.box1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #ccc;
+		}
+		.box2{
+			background-color: blue;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			var oDiv = document.getElementById('div1');
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function(){
+				$('div').addClass('box1 box2');//设置
+				$('div').removeClass('box2');//移除
+				$('div').toggleClass('box2');// 切换(存在就删除不存在就添加)
+			}
+		})
+	</script>
+</head>
+<body>
+	<input type="button" id = "btn" value = "测试">
+	<div id = 'div1'></div>
+</body>
+</html>

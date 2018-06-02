@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015jQuery操作css.html</title>
+	<style>
+		div{
+			
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			//$('div').css('width','300');
+			//$('div').css('height','300');
+			//$('div').css('backgroundColor','#ccc');
+			//$('div').css('width','300').css('height','300')
+
+			$('div').css({
+				width:300,
+				height:300,
+				backgroundColor:'red',
+				border:'1px solid #ccc'
+
+			})
+	})
+	</script>
+</head>
+<body>
+	<div class = "div1"></div>
+
+	
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009jQuery过滤器.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		// $('选择器:empty') 选择的元素中没有文本内容和子元素的
+		// $('选择器:parent') 选择的元素中有文本内容或者子元素的
+		// $('选择器:contains(文本内容)') 选择的元素中包含有指定内容的
+		// $('选择器:has(选择器)') 选择的元素中有指定的选择器的
+		$(function(){
+			console.log($('div:eq(0)'));
+			console.log($('div:eq(-2)').index());
+			console.log($("div:parent"));
+			console.log($("div:empty"));
+			console.log($("div:contains(zhu)"));
+			console.log($("div:has(p)"));
+		})
+	</script>
+</head>
+<body>
+	<div></div>
+	<div><p>div2</p></div>
+	<div>div3</div>
+	<div>div4zhu</div>
+	<div>div5</div>
+</body>
+</html>

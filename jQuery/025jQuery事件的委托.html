@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025jQuery事件的委托.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			/*
+			$('li').click(function(){
+				alert($(this).html());//回调函数中的this是触发事件的元素,及具体的某个子元素
+			});
+			*/
+
+			$('ul').delegate('li','click',function(){//以事件委托的方式动态添加元素，可以被触发
+				alert($(this).html());
+			})
+			$('button').click(function(){
+				var $li = $('<li>新创建的</li>');//
+				$('ul').append($li);
+			});
+		})
+	</script>
+</head>
+<body>
+	<button>新创建</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>
