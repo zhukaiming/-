@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>052属性方法测试2.html</title>
+	<!-- <script src = "zquery-1.0.1.js"></script> -->
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$('button').click(function(){
+			console.log($('div').attr('name','zh'))
+			console.log($('div').attr('name'))
+			console.log($('div').attr({
+				name:'zhu',
+				class:'we'
+				})
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div name = "zhu"></div>
+	<div name = "zhu"></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046表单验证插件.html</title>
+	<script src = "jquery-1.12.4.js"></script>
+	<script src = "jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>
+	<script>
+		$(function(){
+			$('#reg').validate({
+				rules:{
+					username:{
+						required:true,
+						rangelength:[2,8],
+						remote:'047user.json'
+					},
+					password:{
+						required:true,
+						number:true
+					},
+					email:{
+						email:true
+					},
+					hostpage:{
+						url:true
+					}
+				},
+				messages:{
+					username:{
+					required:'用户名必须输入',
+					rangelength:'用户名至少两位',
+					remote:'用户名太受欢迎'							
+					},
+					password:{
+						required:'密码必须',
+						number:'密码必须是数字'
+					},
+					email:{
+						email:'邮箱格式不对'
+					},
+					homepage:{
+						url:'网络地址格式不对'
+					}
+				}
+			})	
+		})
+	</script>
+</head>
+<body>
+	<form action="http://www.baidu.com" id = "reg">
+		<div>
+			<div>
+				用户名:<input type="text" name = "username" >
+			</div>
+			<div>
+				密码:<input type="text" name = "password" >
+			</div>
+			<div>
+				邮箱:<input type="text" name = "email" >
+			</div>
+			<div>
+				个人主页:<input type="text" name = "homepage" >
+			</div>
+			
+			<div>
+				提交:<input type="submit" name = "submite">
+			</div>
+		</div>
+	</form>
+</body>
+</html>

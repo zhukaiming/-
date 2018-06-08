@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054事件方法测试2.html</title>
+	<style>
+		div{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+		}
+	</style>
+	<!-- <script src ="zquery-1.0.1.js"></script> -->
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+
+			console.log($('button').on('click',function(){
+				alert('aaa')
+				$('body').append('div').clone(true)
+			}));
+			
+			//console.log($('button').on('mouseover',function(){
+			//	alert('aaa')
+			//}));
+			//console.log($('button').on('mouseout',function(){
+				//alert('aaa')
+			//}));
+			/*console.log($('button').off('mouseover'),function(){
+				alert('off');
+			})*/
+			//console.log($('button').off(),function(){
+			//})
+			
+
+		})
+	</script>
+</head>
+<body>
+	<button>测试一</button>
+	<div></div>
+	<div></div>
+</body>
+</html>

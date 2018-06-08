@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>050each和map的测试.html</title>
+	<!-- <script src = "jquery-1.12.4.min.js"></script> -->
+	<script src = "zquery-1.0.1.js"></script>
+	<!-- <script src = "jquery-1.12.4.js"></script> -->
+	<script>
+		$(function(){
+			var aLi = document.getElementsByTagName('li');
+			var arr = [11,22,33,44];
+			var likearr = {1:'11',2:'22',3:'33',4:'44'}
+			var obj = {name:'zhu',age:20}
+			var res = $.each(likearr,function(index,value){
+				if(index == 1){
+					//return false;//false停止break
+					return true;//true跳过继续
+
+				}
+				//console.log(this)//这里的this是dom节点
+				console.log(index,value)
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

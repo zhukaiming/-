@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047全屏加载插件.html</title>
+	<link rel="stylesheet" href="fullPage.js-master/dist/jquery.fullpage.css">
+	<style>
+		#menu{
+			width: 400px;
+			height: 40px;
+			line-height: 40px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 999;
+		}
+		#menu li{
+			float: left;
+			margin-right: 10px;
+			list-style: none;
+		}
+	</style>
+	<script src = "jquery-1.12.4.js"></script>
+	<script src = "fullPage.js-master/dist/jquery.fullpage.min.js"></script>
+	<script>
+		$(function(){
+			$('#fullpage').fullpage({
+				sectionsColor:['blue','yellow','#ff6700','red'],
+				controlArrows:true,
+				verticalCentered:true,//内容垂直居中
+				resize:true,
+				scrollingSpeed:1000,//鼠标速度
+				anchors:['page1','page2','page3','page4'],//添加锚点z\在地址栏显示
+				//lockAnchors:true,
+				css3:true,
+				menu:'#menu',
+				//navigation:true,
+				//navigationPosition:'right',
+				//navigationTooltips:['page1','page2','page3','page4'],
+
+
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul id = "menu">
+		<li data-menuanchor ='page1'><a href="#page1">第一屏</a></li>
+		<li data-menuanchor ='page2'><a href="#page2">第二屏</a></li>
+		<li data-menuanchor ='page3'><a href="#page3">第三屏</a></li>
+		<li data-menuanchor ='page4'><a href="#page4">第四屏</a></li>
+	</ul>
+	<div id="fullpage">
+		<div class = "section">第一屏</div>
+		<div class = "section">第二屏</div>
+		<div class = "section">第三屏</div>
+		<div class = "section">第四屏</div>
+	</div>
+</body>
+</html>

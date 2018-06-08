@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>053属性方法测试3.html</title>
+	<!-- <script src = "zquery-1.0.1.js"></script> -->
+	<script src = "jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button')[0].onclick = function(){
+				//console.log($('div').css('width'))
+				//console.log($('div').css('width','300px'))
+				/*console.log($('div').css({
+					width:'300px',
+					height:'300px',
+					backgroundColor:'red'
+				}))
+				*/
+				//console.log($('div').hasClass('box'));
+				//console.log($('div').hasClass('box'));
+				//console.log($('div').removeClass('box'));
+				//console.log($('div').toggleClass('box1     box2'));
+				//console.log($('div').removeClass('ac ddd'));
+				//console.log($('div').remove())
+				//console.log($('div').append('<p>ceshi</p>'))
+				//console.log($('div').prepend('<p>ceshi</p>'));
+				console.log($('div').prepend('p')[0]);
+				console.log($('div').prepend($('.box')));
+			}
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div class = "box ddd ac"></div>
+	<div class = "box1  bbb"></div>
+</body>
+</html>
