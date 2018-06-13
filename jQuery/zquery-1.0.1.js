@@ -47,14 +47,14 @@ zQuery.fn = zQuery.prototype = {//让zquery的原型对象等于jQuery.fn
 					this[i] = doms[i];
 				}*/
 				//转化为伪数组
-				this.length = doms.length;
+				//this.length = doms.length;
 
 				[].push.apply(this,doms);
 
 			}
 			//处理数组
 		}else if(zQuery.isArray(selector)){
-			//传进来的数组转化为真数组
+			//传进来的数组转化为真数组,由于apply转伪数组有兼容问题(IE8以下不兼容),所以把所有传入的数组转换成真数组
 			var tmpArr = [].slice.call(selector);
 			//转化为伪数组
 			[].push.apply(this,tmpArr);
@@ -71,14 +71,16 @@ zQuery.fn = zQuery.prototype = {//让zquery的原型对象等于jQuery.fn
 	//原型上的属性和方法
 	selector: "",
 	length: 0,
+	jQuery:'1.0.1',
 	push:[].push,
 	sort:[].sort,
+	splice:[].splice,
 	toArray:function() {
 		return [].slice.call(this);
 	},
 	get:function(num){
 		if(arguments.length == 1){
-
+			//正数
 			if(num>=0){
 				return this[num];
 
@@ -95,14 +97,19 @@ zQuery.fn = zQuery.prototype = {//让zquery的原型对象等于jQuery.fn
 		}else{
 			return new zQuery;
 		}
-	}
-	/*first:function() {
+	},
+	first:function(){
 		return this.eq(0);
 	},
-
-	last:function() {
+	last:function(){
 		return this.eq(-1);
-	},*/
+	},
+	each:function(fn){
+		return zQuery.each(this,fn);
+	},
+	map:function(fn){
+		return zQuery(zQuery.map(this,fn));
+	}
 
 }
 
@@ -118,10 +125,10 @@ zQuery.extend = zQuery.fn.extend = function(obj){
 //zQuery静态方法
 zQuery.extend({
 		isFunction : function(str){
-			return typeof str === 'function'
+			return typeof str === 'function';
 		},
 		isString : function(str){
-			return typeof str === 'string'
+			return typeof str === 'string';
 		},
 		isHTML : function(str){
 			 return str.charAt(0) == "<" && str.charAt(str.length - 1) == ">" && str.length >=3;
@@ -451,6 +458,7 @@ zQuery.fn.extend({
 		}
 		return this;
 	},
+	/*
 	clone:function(bcopy){
 		var res = [];
 		this.each(function(){
@@ -465,6 +473,7 @@ zQuery.fn.extend({
 			res.push(dom);
 		})
 	}
+	*/
 });
 //zQuery对象上事件操作方法
 zQuery.fn.extend({
@@ -472,21 +481,25 @@ zQuery.fn.extend({
 	on:function(eventName,fn){
 
 		this.each(function(){
+			//判断dom节点上是否有bucketEvent事件,第一次进入时是没有的,所以先定义一个空对象
+			/*{
+				eventName:[fn1,fn2,fn3];
 
+			}*/
 			if(!this.bucketEvent){//
 				this.bucketEvent = {};
 			}
 			//
-			if(!this.bucketEvent[eventName]){
-				this.bucketEvent[eventName] = [];
+			if(!this.bucketEvent[eventName]){//判断对象上有没有eventName这个数组
+				this.bucketEvent[eventName] = [];//没有的话创建一个空数组
 				this.bucketEvent[eventName].push(fn);
-				zQuery.addEvent(this,eventName,function(){
+				zQuery.addEvent(this,eventName,function(){//
 					zQuery.each(this.bucketEvent[eventName],function(){
 						this();
 					})
 				})
 			}
-			else{
+			else{//如果有这个数组的话把fn直接push到数组内
 				this.bucketEvent[eventName].push(fn);
 			}
 			//this.addEventListener(eventName,fn);//向指定元素添加事件句柄
@@ -495,15 +508,28 @@ zQuery.fn.extend({
 	},
 	off:function(eventName,fnName){
 		//
-		if(arguments.length == 0){//参数为0
+		if(arguments.length == 0){//不传参数
 			this.each(function(){
 				this.bucketEvent = {};//移除所有事件
 			})
-		}else if(arguments.length == 1){//有一个参数
-
+		}else if(arguments.length == 1){//传递参数eventName
+			this.each(function(){
+				if(this.bucketEvent){
+					this.bucketEvent[eventName] = [];
+				}
+			})
 
 		}else if(arguments.length == 2){
-
+			this.each(function(){
+				var dom = this;
+				if(this.bucketEvent && this.bucketEvent[eventName]){
+					zQuery.each(this.bucketEvent[eventName],function(index,fn){
+						if(this == fnName){
+							dom.bucketEvent[eventName].splice(index,1);
+						}
+					})
+				}
+			})
 		}
 	}
 
