@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>004-可拖拽调查问卷.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			float: left;
+			width: 500px;
+			min-height: 500px;
+		}
+		.list{
+			margin-left: 500px;
+			width: 500px;
+			min-height: 500px;
+			border-left: 2px solid #ccc;
+		}
+		.list .box{
+			margin-top: 20px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="page">
+		<div class="container">
+			<h1>调查问卷</h1>
+		</div>
+		<div class="list">
+			<div class="box" draggable= "true">
+				<label for="">姓名</label>
+				<input type="text" name = "username">
+			</div>
+			<div class="box" draggable= "true">
+				<label for="">年龄</label>
+				<input type="text" name = "age">
+			</div>
+			<div class="box" draggable= "true">
+				<label for="">爱好</label>
+				<input type="checkbox" name = "hobby">
+				篮球
+				<input type="checkbox" name = "hobby">
+				足球
+				<input type="checkbox" name = "hobby">
+				排球
+			</div>
+		</div>
+	</div>
+</body>
+<script src = "jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var ele = null;
+		$('.list')
+		.on('dragstart','.box',function(){
+			ele = this;
+			//ele = this;
+		})
+		$('.container')
+		.on('drop',function(){
+			$(this).append($(ele).clone());
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})		
+	})
+
+</script>
+</html>

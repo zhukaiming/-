@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			position: 
+		}
+		.container{
+			width: 400px;
+			height: 400px;
+			background-color: blue;
+
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		.hide{
+			display: none;
+			border-radius: 
+		}
+		.active{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id ="container"></div>
+	<div class="target" id = "target" draggable = "true"></div>
+	<img src="images/header-logo.png" id = "logo" class = "hide" alt="">
+</body>
+<script src = "jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//
+		$('#target')
+		.on('dragstart',function(ev){
+			//设置数据
+			ev.originalEvent.dataTransfer.setData('targetId',ev.target.id);
+			//设置拖动的图标图片
+			ev.originalEvent.dataTransfer.setDragImage($('#logo').clone().removeClass('hide')[0],0,0);
+		})
+
+		$('#container')
+		.on('drop',function(ev){
+			//获取数据
+			var targetId = ev.originalEvent.dataTransfer.getData('targetId')
+			$('#container').append($('#'+targetId))
+		})
+		//阻止默认事件
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+		.on('dragenter',function(){
+			$('#container').addClass('active').css({
+			width:200,
+			height:200,
+			})
+			console.log('dragenter...')
+		})
+		.on('dragleave',function(){
+			$('#container').removeClass('active')
+			console.log('ondragleave...')
+		})
+		.on('dragend',function(){
+			console.log('ondragend...')
+		})
+	})
+</script>
+</html>

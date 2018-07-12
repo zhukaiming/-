@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拼图案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 500px;
+			height: 300px;
+		}
+		.container li{
+			list-style: none;
+			float: left;
+			width: 100px;
+			height: 150px;
+		}
+		.container li img{
+			width: 100px;
+			height: 150px;			
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<li class = "draggable"><img src="images/04.png" alt=""></li>
+		<li class = "draggable"><img src="images/05.png" alt=""></li>
+		<li class = "draggable"><img src="images/03.png" alt=""></li>
+		<li class = "draggable"><img src="images/01.png" alt=""></li>
+		<li class = "draggable"><img src="images/02.png" alt=""></li>
+		<li class = "draggable"><img src="images/09.png" alt=""></li>
+		<li class = "draggable"><img src="images/06.png" alt=""></li>
+		<li class = "draggable"><img src="images/07.png" alt=""></li>
+		<li class = "draggable"><img src="images/08.png" alt=""></li>
+		<li class = "draggable"><img src="images/10.png" alt=""></li>
+	</div>
+</body>
+<script src = "jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var targetElm = null;
+		$('.container')
+		.on('dragstart','li',function(){
+			targetElm = this;
+		})
+		.on('drop','li',function(){
+			var tom = targetElm.innerHTML;
+			if(targetElm != this){
+				targetElm.innerHTML = this.innerHTML;
+				this.innerHTML = tom;
+			}
+		})
+		.on('dragover','li',function(ev){
+			ev.preventDefault();
+		})
+	})
+</script>
+</html>
