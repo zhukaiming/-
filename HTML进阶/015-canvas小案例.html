@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		canvas{
+			background-color: #000;
+			margin-left: 300px;
+		}
+	</style>
+</head>
+<body>
+	<canvas width = "1000" height = "600" id = "canvas"></canvas>
+</body>
+<script>
+	var oCanvas = document.getElementById('canvas');
+	var ctx = oCanvas.getContext('2d');	
+
+	//随机数
+	function getRandom(min,max){
+		return Math.round((min + (max - min)*Math.random()));
+	}
+	function ball(x,y,color){
+		this.x = x;
+		this.y = y;
+		this.color = color;
+		this.r = 20;
+
+		//定义范围
+		this.dx = getRandom(-5,5);
+		this.dy = getRandom(-5,5);
+		this.dr = getRandom(1,3);
+	}
+	ball.prototype = {
+		constructor:ball,
+		render:function(){
+			ctx.save();
+			ctx.beginPath();
+			ctx.fillStyle = this.color;
+			ctx.arc(this.x,this.y,this.r,0,2*Math.PI,true);
+			ctx.fill();
+			ctx.restore();
+
+		},
+		//
+		upData:function(){
+			this.x += this.dx;
+			this.y += this.dy;
+			this.r -= this.dr;
+			if(this.r<0){
+				this.r = 0;
+			} 
+		}
+	}
+	var colorArr = ['red','yellow','pink','blue','tomato','green','orange'];
+	var ballArr = [];
+	//
+	oCanvas.addEventListener('mousemove',function(ev){
+		//生成球
+		var Ball = new ball(ev.offsetX,ev.offsetY,colorArr[getRandom(0,colorArr.length-1)]);
+		ballArr.push(Ball);
+	})
+	setInterval(function(){
+		//清除小球
+		ctx.clearRect(0,0,oCanvas.width,oCanvas.height);
+		for(var i = 0;i<ballArr.length;i++){
+			ballArr[i].render();
+			ballArr[i].upData();
+
+		}
+	},50)
+</script>
+</html>

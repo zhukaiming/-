@@ -1,0 +1,87 @@
+body {
+  background: #fff;
+}
+h1 {
+  color: red;
+}
+a:hover {
+  color: red;
+}
+.box1 {
+  width: 200px;
+  height: 100px;
+  background: red;
+}
+.box2 {
+  width: 200px;
+  height: 100px;
+  background: red;
+  background: yellow;
+  margin-top: 10px;
+  -webkit-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+}
+.box3 {
+  width: 200px;
+  height: 100px;
+  background: red;
+  background: tomato;
+  margin-top: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+/*
+.triangle{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+
+	border-width: 20px;
+	border-color: red transparent transparent transparent;//transparent透明
+	border-style: solid;
+}
+*/
+.box4 {
+  border-width: 60px;
+  border-color: transparent transparent #0000ff transparent;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-style: solid;
+}
+.list {
+  width: 100%;
+}
+.list li {
+  width: 100%;
+  height: 50px;
+  list-style: none;
+}
+.list li span {
+  font-size: 18px;
+  color: blue;
+}
+.list li a:hover {
+  font-size: 24px;
+  color: pink;
+}
+.box5 {
+  font-size: 20px;
+}
+.box6 {
+  font-size: calc(80px);
+  width: calc(50px-20px);
+}
+.box7 {
+  width: 200px !important;
+  height: 100px !important;
+  background: red !important;
+}
+.box8 {
+  width: 100px;
+}

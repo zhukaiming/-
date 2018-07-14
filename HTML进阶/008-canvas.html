@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas画布</title>
+	<style>
+		canvas{
+			border: 2px solid #ccc;
+		}
+/* 		#canvas1{
+	width: 200px;
+	height: 200px;	a
+} */
+	</style>
+</head>
+<body>
+	<canvas width = "800" height = "200" id = "canvas"></canvas>
+</body>
+<script>
+	var oCanvas = document.getElementById('canvas');
+	var ctx = oCanvas.getContext('2d');
+	ctx.save();//保存
+	ctx.fillStyle  =  'red';
+	ctx.strokeStyle = 'red';
+	
+	ctx.moveTo(10,10);
+	ctx.lineTo(100,50);
+	ctx.lineTo(50,200);
+	ctx.strokeStyle = 'red';
+	ctx.lineWidth = 2;
+	ctx.fillStyle = 'rgb(0,255,0)';
+	ctx.closePath();
+	//ctx.translate(100,100);
+	ctx.fill();
+	ctx.stroke();
+	//
+	/*
+	var oCanvas = document.getElementById('canvas1');
+	var ctx = oCanvas.getContext('2d');
+	ctx.moveTo(10,10);
+	ctx.lineTo(100,150);
+	ctx.strokeStyle = 'red';
+	ctx.lineWidth = '5'	
+	ctx.stroke();
+	*/
+	ctx.beginPath();
+	ctx.translate(100,100);
+	ctx.rotate(Math.PI/6);
+
+	ctx.strokeRect(0,0,100,50)
+	/*
+	ctx.arc(100,150,50,0,2*Math.PI,true);
+	*/
+	//ctx.closePath();
+	ctx.beginPath();
+	ctx.restore();//
+	ctx.strokeStyle = 'blue';
+	ctx.fillStyle = 'red';
+	ctx.translate(200,0);
+	ctx.arc(100,100,50,0,2*Math.PI,true);
+
+
+	ctx.fill();
+	ctx.stroke();
+
+</script>
+</html>

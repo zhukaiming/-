@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>010-渐变2.html</title>
+	<style>
+		canvas{
+			border: 2px solid #ccc;
+		}	
+	</style>
+</head>
+<body>
+	<canvas width = "600" height = "600" id = "canvas"></canvas>
+</body>
+<script>
+	var oCanvas = document.getElementById('canvas');
+	oCanvas.width = 600;
+	oCanvas.height = 600;
+	var ctx = oCanvas.getContext('2d');	
+	//
+	ctx.beginPath();
+	var linearGradient = ctx.createLinearGradient(0,0,175,50);
+	linearGradient.addColorStop(0,'#FF0000');
+	linearGradient.addColorStop(1,'#00FF00');
+	//
+	ctx.fillStyle = linearGradient;
+	ctx.fillRect(0,0,175,50);
+	ctx.stroke();
+</script>
+</html>

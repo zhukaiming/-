@@ -1,0 +1,134 @@
+
+@color:red;
+@w:200px;
+@h:100px;
+
+body{
+	background:#fff;
+}
+
+h1{
+	color:red;
+}
+a:hover{
+	color:red;
+}
+.box1{
+	width:@w;
+	height:@h;
+	background: red;
+}
+.border-radius(@border-width){
+	//浏览器兼容
+	-webkit-border-radius:@border-width;
+	-ms-border-radius:@border-width;
+	-o-border-radius:@border-width;
+	border-radius: @border-width;
+}
+//默认
+.border-radius-def(@border-width:10px){
+	//浏览器兼容
+	-webkit-border-radius:@border-width;
+	-ms-border-radius:@border-width;
+	-moz-border-radius:@border-width;
+	-o-border-radius:@border-width;
+	border-radius: @border-width;
+}
+.box2{
+	.box1;
+	background: yellow;
+	margin-top: 10px;
+	.border-radius(40px);
+}
+.box3{
+	.box1;
+	background: tomato;
+	margin-top: 10px;
+	.border-radius-def();//默认为10px
+}
+//三角形
+/*
+.triangle{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+
+	border-width: 20px;
+	border-color: red transparent transparent transparent;//transparent透明
+	border-style: solid;
+}
+*/
+//匹配模式
+.triangle(top,@w,@color){
+	border-width: @w;
+	border-color: @color transparent transparent transparent;//transparent透明
+
+}
+.triangle(left,@w:10px,@color:red){
+	border-width: @w;
+	border-color: transparent transparent transparent @color;//transparent透明
+
+}
+.triangle(right,@w,@color){
+	border-width: @w;
+	border-color: transparent @color transparent transparent;//transparent透明
+
+}
+.triangle(bottom,@w:10px,@color:red){
+	border-width: @w;
+	border-color: transparent transparent @color transparent;//transparent透明
+
+}
+.box4{
+	.triangle(bottom,60px,blue);	
+}
+//公用样式
+//@_代表匹配任意值，且后面的参数不能省略
+.triangle(@_,@w:10px,@color:red){
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid;	
+}
+//嵌套
+.list{
+	width:100%;
+	li{
+		width: 100%;
+		height: 50px;
+		list-style: none;
+		span{
+			font-size: 18px;
+			color:blue;
+		}
+		a:hover{
+			font-size: 24px;
+			color:pink;
+		}
+	}
+}
+
+//
+.fs(@s){
+	font-size: @s + 10px;
+
+}
+.box5{
+	.fs(10px);
+}
+.box6{
+	font-size: calc(100px-20px);
+	//font-size: ~'calc(100px-20px)';//~''避免编译
+	width: ~'calc(50px-20px)';//~''避免编译
+}
+.box7{
+	.box1 !important;//提高优先级
+}
+//设置样式混合
+.setStyle(@attr,@value){
+	@{attr}:unit(@value,px);
+}
+.box8{
+	.setStyle(width,100px);
+
+}
