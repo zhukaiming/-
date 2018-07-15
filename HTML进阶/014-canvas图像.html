@@ -18,6 +18,9 @@
 
 	var img = new Image();
 	img.src = "images/header-logo.png";
-	ctx.drawImage(img,50,50);
+	img.onload = function(){
+		ctx.drawImage(img,0,0,200,200,50,50,300,300);
+
+	}
 </script>
 </html>
