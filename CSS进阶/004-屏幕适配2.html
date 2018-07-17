@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>屏幕适配2</title>
+	<meta name = "viewport" content = "width=device-width">
+	<link rel="stylesheet" href="css/rem1.css">
+	
+<!-- 	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	html{
+		font-size: 15px;
+	}
+	img{
+		float: left;
+		width:10rem;
+	}
+	h1{
+		font-size: 2rem;
+	}
+</style> -->
+</head>
+<body>
+	<img src="images/bg.jpg">
+	<h1>测试案例1</h1>
+</body>
+<!-- <script>
+	(function(win,doc){
+		function reFont(){
+		//获取根元素
+			var iRoot = doc.getElementsByTagName('html')[0];
+
+			//获取宽度
+			var iWidth = doc.body.clientWidth || doc.documentElement.clientWidth;
+
+			//根据宽度获取fontsize
+			//屏幕宽度/10等于1rem;
+			//
+			var iFont = iWidth / 10;
+			//
+			iRoot.style.fontSize = iFont + 'px';			
+		}
+
+		//添加事件
+		win.addEventListener('resize',reFont,false);
+		doc.addEventListener('DOMContentLoad',reFont,false);
+	})(window,document)
+</script> -->
+<script src = "js/rem.js"></script>
+</html>
