@@ -174,13 +174,16 @@
 }
 .footer{
 	.rem(width,320);
-	.rem(height,60);	
+	.rem(height,70);	
 	.foot-left{
 		float: left;
 		margin: 10px 10px 0 10px;
 		.rem(width,30);
 		text-align: center;
 		font-size: 15px;
+		span{
+			font-size: 12px;
+		}
 		.check-right{
 			display: inline-block;
 			width: 20px;
@@ -195,18 +198,28 @@
 		float: left;
 		.rem(width,160);
 		margin-top: 10px;
+		// margin-left: 5px;
 		font-size: 15px;
+		p{
+			font-size: 12px;
+			color:#ccc;
+			margin-top: 5px;
+		}
+		.foot-mid-tit{
+			margin-bottom: 5px;
+		}
 	}
 	.foot-right{
 		.rem(width,110);
-		line-height: 60px;
+		.rem(height,70);
+		line-height: 70px;
 		float: right;
 		background: red;
+		color:#fff;
 		text-align: center;
 		margin-top: 0px;
-
 		span{
-			font-size: 15px;
+			font-size: 18px;
 		}
 	}
 	border-bottom: 1px solid @borderColor;
