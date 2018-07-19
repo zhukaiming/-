@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let变量</title>
+	<style>
+		.active{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>4</button>
+</body>
+<script>
+	var oBtn = document.getElementsByTagName('button');
+	//
+	/*
+	for(var i = 0;i<oBtn.length;i++){
+		oBtn[i].index = i;
+		oBtn[i].onclick = function(){
+			oBtn[i].className = "active";
+			console.log(i);
+		}
+	}
+	*/
+	/*
+	for(var i = 0;i<oBtn.length;i++){
+		(function(i){
+			oBtn[i].onclick = function(){
+				console.log(i);
+			}
+				
+		})(i)
+	}
+	*/
+	//
+	
+	for(let i = 0;i<oBtn.length;i++){
+		oBtn[i].onclick = function(){
+			oBtn[i].className = "active";
+			console.log(i);
+		}
+	}
+	
+	
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+	//
+	let obj1 = {name:'zhu'};
+	let map = new Map();
+	//
+	map.set('name','zhu');//设置
+	map.set(obj1,'lisass');
+	//遍历
+	for(key of map.keys()){
+		console.log(key);
+	}
+	for(value of map.values()){
+		console.log(value);
+	}
+	for(entries of map.entries()){
+		console.log(entries);
+	}
+</script>
+</html>

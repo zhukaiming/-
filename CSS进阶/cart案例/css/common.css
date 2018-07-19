@@ -1,4 +1,14 @@
 .container{
 	.rem(width,320);
-	.rem(height,46);
+	/*.rem(height,46);*/
+}
+.clearfix:after{
+	clear: both;
+	display: block;
+	content: '';
+	height: 0px;
+	visibility: hidden;
+}
+.clearfix{
+	*zoom:1;
 }

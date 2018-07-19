@@ -48,7 +48,7 @@
 	.rem(font-size,15);	
 	.local-nav{
 		float: left;
-		.rem(margin,20,0,0,10);
+		.rem(margin,16,0,0,10);
 		text-align: center;
 	}
 	.local-name{
@@ -82,6 +82,14 @@
 		.rem(margin-left,10);
 		background: red;
 		text-align: center;
+		.check-mark{
+			float: left;
+			text-align: center;
+			margin-top: 5px;
+			margin-left: 3px;
+			font-size: 13px;
+			color:#fff;
+		}
 	}
 	.sell-name{
 		color:#878787;
@@ -110,7 +118,10 @@
 }
 .content{
 	.rem(width,320);
-	.rem(height,152);
+	.rem(height,183);
+	.content-left{
+		float: left;
+	}
 	.content-log{
 		float: left;
 		.rem(width,20);
@@ -159,6 +170,47 @@
 		}
 	}
 	border-bottom: 1px solid @borderColor;
-	box-sizing: border-box;		
+	box-sizing: border-box;
 }
+.footer{
+	.rem(width,320);
+	.rem(height,60);	
+	.foot-left{
+		float: left;
+		margin: 10px 10px 0 10px;
+		.rem(width,30);
+		text-align: center;
+		font-size: 15px;
+		.check-right{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			color:#fff;
+			background: red;
+			border-radius: 50%;
+		}
+	}
+	.foot-mid{
+		float: left;
+		.rem(width,160);
+		margin-top: 10px;
+		font-size: 15px;
+	}
+	.foot-right{
+		.rem(width,110);
+		line-height: 60px;
+		float: right;
+		background: red;
+		text-align: center;
+		margin-top: 0px;
+
+		span{
+			font-size: 15px;
+		}
+	}
+	border-bottom: 1px solid @borderColor;
+	box-sizing: border-box;
+}
+
 
