@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//msg='hellow'为默认参数
+	/*
+	function show(name,msg='hellow'){//
+		console.log(name,msg);
+	}
+	show('zhang',msg='Hi')
+	*/
+	//结构解析,解构赋值
+	function show(name,{age=20,sex="男"}={}){
+		console.log(name,age,sex);
+	}
+	show('zhang');
+	
+	//...为rest参数
+	/*
+	function show(name,...arg){
+		console.log(name,arg[0],arg[1]);
+	}
+	show('zhu','student',18);
+	*/
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//没有声明的提升
+	class person{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		showName(){
+			console.log("I am " + this.name);
+		}
+		showAge(){
+			console.log("I am " + this.age);
+		}
+		//静态方法
+		//static 
+	}
+	//继承
+	class student extends person{
+
+	}
+	let p = new person("zhu",20);
+	console.log(p);
+	console.log(person.prototype)
+	p.showName();
+	p.showAge();
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数的this指向</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function timer(id){
+		this.id = id;
+		setTimeout(function(){
+			//这里面的this指向的是window
+			console.log(this)
+			//console.log(this.id);
+			//
+		},1)
+	}
+	var timer = new Timer('100');
+	*/
+	/*
+	function Timer(id){
+		this.id = id;
+		setTimeout(()=>{
+			console.log(this.id)
+		},500)
+	}
+	var timer = new Timer('100');
+	*/
+	/*
+	function Timer(id){
+		this.id = id;
+		setTimeout(()=>{
+			console.log(this.id)
+		}.bind(this),500)
+		//由于箭头函数没有自己的this，所以当然也就不能用call()、apply()、bind()这些方法去改变this的指向。
+	}
+	var timer = new Timer('100');
+	*/
+	function Timer(id){
+		this.id = id;
+		setTimeout(()=>{
+			console.log(this.id)
+		},500)
+	}
+	var timer = new Timer('100');
+</script>
+</html>
