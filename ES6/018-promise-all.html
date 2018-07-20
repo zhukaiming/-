@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Promise-all</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 实例
+	//console.log(p)
+	let getPromise = (url)=>{
+		//创建promise实例
+		//Promise 新建后就会立即执行,所以首先输出的是a::,then方法指定的回调函数，会在所有同步执行任务完成后执行
+		let promise = new Promise((resolve,reject)=>{
+			console.log('a::')
+
+			let image = new Image();
+			//resolve:异步操作成功时调用
+			image.onload = ()=>{
+				resolve(url);
+			}
+			//失败
+			image.onerror = ()=>{
+				reject(url);
+			}
+			image.src = url;
+		})
+		return promise;
+		//Promise 的状态一旦改变，就永久保持该状态，不会再变了
+		throw new Error('test');//再抛出错误不会被捕获
+	}
+	//
+	let arr = ['images/bg.jpg','images/gif1.gif']
+	.map((url)=>{
+		return getPromise(url);
+	})
+	let p = Promise.all(arr);
+	p
+	.then((val)=>{
+		console.log('resolve...',val);
+	},(val)=>{
+		console.log('reject...',val);
+	})
+</script>
+</html>

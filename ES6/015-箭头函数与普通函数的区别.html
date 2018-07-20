@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数与普通函数区别</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//
+	let show = (...args)=>{
+		console.log(args);
+	}
+	show(11,22)
+	/*
+	function fact(n){
+		if(n<=1){
+			return 1;
+		}else{
+			//return n * fact(n-1);//arguments.callee替换
+			return n * arguments.callee(n-1);//arguments.callee替换
+		}
+	}
+	//
+	let factIn = fact;
+	fact = null;
+	console.log(factIn(5))
+	*/
+</script>
+</html>
