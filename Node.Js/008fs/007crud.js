@@ -13,7 +13,7 @@ let add = (name,callback)=>{
 			obj.push({
 				id:uuidv1(),
 				name:name
-			})
+			});
 			//把obj转化为字符串
 			let str = JSON.stringify(obj);
 			//异步写文件,str写入的数据
