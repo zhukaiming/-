@@ -7,9 +7,13 @@
 </head>
 <body>
 	<div class = "wall">
-		<div class="wish">
-			<a href="javascript:;" class = "close" data-id = ""></a>
-		</div>
+		{% for item in data %}
+		<div class="wish" style = "background: {{ item.color }}" >
+			<a href="javascript:;" class = "close" data-id = "{{ item.id }}"></a>
+			{{ item.content }}
+		</div>		
+		{% endfor %}
+
 	</div>
 	<div class="form">
 		<div>
@@ -23,5 +27,4 @@
 <script src = "js/jquery-1.12.4.min.js"></script>
 <script src = "js/jquery.pep.js"></script>
 <script src = "js/index.js"></script>
-
 </html>

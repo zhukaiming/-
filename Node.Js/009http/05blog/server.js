@@ -10,12 +10,12 @@ const server = http.createServer((req,res)=>{
 	if(filename.lastIndexOf('.') == -1){
 		filename = filename + '/index.html';
 	}
-	//
+	//路径
 	let filepath = path.normalize(__dirname + '/static' + filename);//__dirname
 	//拓展名
 	let extname = path.extname(filepath);
 	//console.log(extname)
-	//
+	//异步地读取一个文件的全部内容
 	fs.readFile(filepath,(err,data)=>{
 		if(!err){//读取成功
 				res.setHeader('Content-type',mime[extname],';charset=UTF-8');//响应头
@@ -24,7 +24,7 @@ const server = http.createServer((req,res)=>{
 		}else{
 				res.setHeader('Content-type','text/html;charset=UTF-8');//响应头
 				//res.write('hello 你好');
-
+				
 				//res.end();
 				res.statusCode = 404;	
 				res.end('<h1>读取失败..</h1>');				

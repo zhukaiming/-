@@ -1,5 +1,8 @@
 
-
+*{
+	padding: 0;
+	margin: 0;
+}
 body{
 	background:url(../img/beijing.jpg);
 	background-size: cover;
@@ -15,8 +18,7 @@ body{
 .wish{
 	width: 100px;
 	height: 150px;
-	background-color: tomato;
-	padding: 20px;
+	padding: 10px;
 	overflow: hidden;
 	box-sizing: border-box;
 	position: relative;
@@ -46,4 +48,11 @@ textarea{
 }
 .sub-btn:hover{
 	box-shadow: 0 4px 4px rgba(0,0,0,0.3)
+}
+.close{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: blue;
+	border-radius: 50%;
 }
