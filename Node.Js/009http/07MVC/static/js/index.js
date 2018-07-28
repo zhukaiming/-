@@ -47,8 +47,7 @@
 		console.log($this.data('id'));//
 		//
 		$.ajax({
-			url:'/del',
-			data:'id='+$this.data('id'),//
+			url:'/Wish/del'+ $this.data('id'),//分隔符/
 			dataType:'json'//发送的数据类型
 
 		})
@@ -67,7 +66,7 @@
 		let val = $('#content').val();//获取val,获取文本框中的内容
 		//发送ajax请求到server
 		$.ajax({
-			url:'/add',
+			url:'/Wish/add',
 			data:{content:val},//传送文本框中的内容
 			dataType:'json',//发送的数据类型
 			type:'POST'
