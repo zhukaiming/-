@@ -47,7 +47,7 @@
 		console.log($this.data('id'));//
 		//
 		$.ajax({
-			url:'/Wish/del'+ $this.data('id'),//分隔符/
+			url:'/Wish/del/'+ $this.data('id'),//分隔符/
 			dataType:'json'//发送的数据类型
 
 		})

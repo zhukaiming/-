@@ -41,7 +41,7 @@ const server = http.createServer((req,res)=>{
 		console.log('server...',pathname);
 		//定义数组
 		let paths = pathname.split('/');//分隔符/,	
-		let controller = paths[1] || 'Wish';//不传参数默认wish
+		let controller = paths[1] || 'Index';//不传参数默认wish
 		let action = paths[2] || 'index';
 		let args = paths.slice(3);//slice() 把匹配元素集合缩减为指定的指数范围的子集
 		let model;
