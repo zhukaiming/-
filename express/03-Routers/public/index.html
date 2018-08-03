@@ -8,16 +8,16 @@
 	<div>
 		<button id = "get">get</button>
 		<button id = "post">POST</button>
-		<button id = "Del">deleted</button>
-		<button id = "get">get</button>
+		<button id = "put">put</button>
+		<button id = "delete">deleted</button>
 	</div>
 </body>
 <script src = "js/jquery-1.12.4.min.js"></script>
 <script>
 	$(function(){
-		$('#get').on('onclick',function(){
+		$('#get').on('click',function(){
 			$.ajax({
-				url:'/',
+				url:'/user',
 				type:'get'
 			})
 			.done(function(data){
@@ -27,9 +27,9 @@
 				console.log(err)
 			})
 		})
-		$('#post').on('onclick',function(){
+		$('#post').on('click',function(){
 			$.ajax({
-				url:'/',
+				url:'/user',
 				type:'post'
 			})
 			.done(function(data){
@@ -39,9 +39,9 @@
 				console.log(err)
 			})
 		})
-		$('#put').on('onclick',function(){
+		$('#put').on('click',function(){
 			$.ajax({
-				url:'/',
+				url:'/user',
 				type:'put'
 			})
 			.done(function(data){
@@ -51,9 +51,9 @@
 				console.log(err)
 			})
 		})
-		$('#delete').on('onclick',function(){
+		$('#delete').on('click',function(){
 			$.ajax({
-				url:'/',
+				url:'/user/123',
 				type:'delete'
 			})
 			.done(function(data){

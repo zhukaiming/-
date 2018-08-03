@@ -15,7 +15,7 @@
 <script src = "js/jquery-1.12.4.min.js"></script>
 <script>
 	$(function(){
-		$('#get').on('onclick',function(){
+		$('#get').on('click',function(){
 			$.ajax({
 				url:'/',
 				type:'get'
@@ -27,7 +27,7 @@
 				console.log(err)
 			})
 		})
-		$('#post').on('onclick',function(){
+		$('#post').on('click',function(){
 			$.ajax({
 				url:'/',
 				type:'post'
@@ -39,7 +39,7 @@
 				console.log(err)
 			})
 		})
-		$('#put').on('onclick',function(){
+		$('#put').on('click',function(){
 			$.ajax({
 				url:'/',
 				type:'put'
@@ -51,7 +51,7 @@
 				console.log(err)
 			})
 		})
-		$('#delete').on('onclick',function(){
+		$('#delete').on('click',function(){
 			$.ajax({
 				url:'/',
 				type:'delete'

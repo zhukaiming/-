@@ -73,7 +73,8 @@ class Wish{
 			//console.log();
 			//2.拿到数据,转化为对象
 			let obj = querystring.parse(body);//
-			obj.color = color.colorArr[getRandom(0,colorArr.length-1)];
+			obj.color = colorArr[getRandom(0,colorArr.length-1)]
+			//obj.color = color.colorArr[getRandom(0,colorArr.length-1)];
 			/*
 			console.log(obj)
 			//3.存储到文件
