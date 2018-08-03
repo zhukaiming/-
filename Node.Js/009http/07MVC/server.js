@@ -40,7 +40,7 @@ const server = http.createServer((req,res)=>{
 	}else{//动态
 		console.log('server...',pathname);
 		//定义数组
-		let paths = pathname.split('/');//分隔符/,	
+		let paths = pathname.split('/');//分隔符/
 		let controller = paths[1] || 'Index';//不传参数默认wish
 		let action = paths[2] || 'index';
 		let args = paths.slice(3);//slice() 把匹配元素集合缩减为指定的指数范围的子集
@@ -52,8 +52,8 @@ const server = http.createServer((req,res)=>{
 			res.end('页面丢失了');
 			console.log('err:::',err);
 			return;
-
 		}
+		//
 		if(model[action]){//如果有action方法也就是controller的wish方法
 			model[action].apply(null,[req,res].concat(args));
 		}
