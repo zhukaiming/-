@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	hellow
+	<div>
+		{{ content }}
+	</div>
+	<div>
+		{{ obj.name }}
+	</div>
+	<div>
+		{ % if name === 'zhang' % }
+		  hello zhang
+		{ % endif % }
+	</div>
+	<div>
+		{ % for key, val in arr % }
+  			<p>{ { key } } -- { { val } }</p>
+		{ % endfor % }
+	</div>
+	<div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<button id = "post">POST</button>
+	</div>
+</body>
+<script src = "js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		$('#post').on('click',function(){
+			$.ajax({
+				url:'/user',
+				type:'post'，
+				data:{name:"zhu",age:18}
+			})
+			.done(function(data){
+				console.log(data)
+			})
+			.fail(function(err){
+				console.log(err)
+			})
+		})
+
+</script>
+</html>
