@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>{{ title }}</title>
 </head>
 <body>
 	hellow
@@ -13,14 +13,17 @@
 		{{ obj.name }}
 	</div>
 	<div>
-		{ % if name === 'zhang' % }
+		{% if name === 'zhang' %}
 		  hello zhang
-		{ % endif % }
+		{% endif %}
 	</div>
 	<div>
-		{ % for key, val in arr % }
-  			<p>{ { key } } -- { { val } }</p>
-		{ % endfor % }
+		{% for key, val in arr %}
+  			<p>
+  				{{ key }}
+  				{{ val }}
+  			</p>
+		{% endfor %}
 	</div>
 	<div>
 		

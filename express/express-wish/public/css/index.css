@@ -1,0 +1,58 @@
+
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background:url(../img/beijing.jpg);
+	background-size: cover;
+}
+.wall{
+	width: 900px;
+	height: 600px;
+	float: left;
+	margin: 30px;
+	border:1px solid #ccc;
+	box-sizing: border-box;
+}
+.wish{
+	width: 100px;
+	height: 150px;
+	padding: 10px;
+	overflow: hidden;
+	box-sizing: border-box;
+	position: relative;
+	word-break: break-all;
+	box-shadow: 0 2px 0 2px rgba(0,0,0,0.4);
+}
+
+.form{
+	float: right;
+	margin: 50px;
+}
+textarea{
+	resize: none;
+	outline: 0;
+}
+.sub-btn{
+	display: block;
+	width: 235px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: blue;
+	font-size: 30px;
+	color: #fff;
+	border-radius: 10px;
+	text-decoration: none;
+}
+.sub-btn:hover{
+	box-shadow: 0 4px 4px rgba(0,0,0,0.3)
+}
+.close{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: blue;
+	border-radius: 50%;
+}

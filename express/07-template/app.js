@@ -6,11 +6,11 @@ const swig = require('swig');
 
 const app = express();
 //
-/*
+
 swig.setDefaults({
-  cache: false;//
+  cache: false//
 })
-*/
+
 // 1定义模板引擎
 //第一个参数是模板名称,同时也是模板文件的扩展名
 //第二个参数是解析模板的方法
@@ -42,17 +42,27 @@ app.get('/data',(req,res)=>{
 			name:"zhu",
 			age:18
 		},
-		name:"zhang"
+		name:"zhang",
+		arr:["zhu","li","wang","huang","zhang"]
 
 	})
 })
 
+//访问根目录的话,加载index页面
+
+app.get('/',(req,res)=>{
+	res.render('index')
+})
+
+app.get('/list',(req,res)=>{
+	res.render('list')
+})
 
 app.get('/index',(req,res)=>{
-	res.render('index');
+	res.render('index')
 })
 app.get('/layout',(req,res)=>{
-	res.render('index');
+	res.render('layout')
 })
 
 app.listen(3000,()=>{

@@ -9,7 +9,7 @@ const WishModel = require('../Model/wish.js')
 let getRandom = (min,max)=>{
 	return Math.round(min + (max-min)*Math.random());
 }
-const colorArr = ['red','yellow','blue','green']
+const colorArr = ['red','yellow','blue','green'];
 class Wish{
 	index(req,res,...args){
 		console.log('1111',args);
